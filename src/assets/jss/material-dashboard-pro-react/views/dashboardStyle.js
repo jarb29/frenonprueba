@@ -73,6 +73,19 @@ const dashboardStyle = {
     width: "17px",
     height: "17px"
   },
+  jarb29: {
+    position: 'absolute',
+    margin: 'auto',
+    left: '0',
+    right: '0',
+    top: '20%', /* Adjust this value to move the positioned div up and down */
+    textAlign: 'center',
+    width: '80%', /* Set the width of the positioned div */
+    color: "white",
+    fontSize: "20px",
+    fontweight: '900'
+    
+  },
   price: {
     color: "inherit",
     "& h4": {
