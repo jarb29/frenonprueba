@@ -269,7 +269,7 @@ export default function Dashboard() {
           <Card>
             <CardHeader>
               <h5 className={classes.cardTitle}>
-                Notificaciones 
+                <b>Notificaciones</b>
               </h5>
             </CardHeader>
             <CardBody>
