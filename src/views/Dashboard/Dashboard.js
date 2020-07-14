@@ -54,16 +54,28 @@ export default function Dashboard() {
             <Card>
               <GridContainer>
                 <GridItem xs={12} sm={4} md={4} >
-                  <ion-icon name="bookmarks-outline" size="large" ></ion-icon>
-                  <a>Notificaciones is simply dum</a>
+                    <CardHeader>
+                      <ion-icon name="mail-open-outline" size="large"></ion-icon>
+                      <a>Notificaciones is simply dum</a>
+                    </CardHeader>
+                    <CardFooter stats>
+                    </CardFooter>
                 </GridItem>
                 <GridItem xs={12} sm={4} md={4}>
-                  <ion-icon name="bookmarks-outline" size="large" ></ion-icon>
-                  <a>Notificaciones is simply dum</a>
+                  <CardHeader>
+                  <ion-icon name="bed-outline" size="large"></ion-icon>
+                  <a>Hoteles is simply dum</a>
+                  </CardHeader>
+                  <CardFooter stats>
+                  </CardFooter>
                 </GridItem>
                 <GridItem xs={12} sm={4} md={4}>
-                  <ion-icon name="bookmarks-outline" size="large"  ></ion-icon>
-                  <a>Notificaciones is simply dum</a>
+                <CardHeader>
+                  <ion-icon name="card-outline" size="large" ></ion-icon>
+                  <a>Pagos recibidos is simply dum</a>
+                  </CardHeader>
+                  <CardFooter stats>
+                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
