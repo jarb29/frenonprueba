@@ -398,7 +398,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             "last_login": {
               "date_time": "dateTime|UNIX",
               "ip4": "internetIP4"
-            }
+            },
+            "_repeat": 10
+            
           }
         };
         getActions().productosComprados(data);

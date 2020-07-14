@@ -43,24 +43,16 @@ export default function Dashboard() {
         <GridItem xs={12} sm={12} md={9} lg={9}>
           <GridItem xs={12} sm={12} md={12} lg={12}>
             <Card>
-              <CardHeader color="warning" stats icon>
-                <CardIcon color="warning">
-                  <Icon>content_copy</Icon>
-                </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
-                <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
-                </h3>
+              <CardHeader >
+                <h4 className={classes.cardTitle}><b>Bienvenido</b></h4>
+                <h2 className={classes.cardTitle}><b>David Anderson</b></h2>
               </CardHeader>
               <CardFooter stats>
-                <div className={classes.stats}>
-                  <Danger>
-                    <Warning />
-                  </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
-                  </a>
-                </div>
+                <h3 className={classes.cardCategory}>
+                  Is simply dum text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dum text ever since
+                   the 1500s.
+                </h3>
               </CardFooter>
             </Card>
           </GridItem>
