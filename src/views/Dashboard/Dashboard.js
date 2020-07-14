@@ -37,15 +37,19 @@ export default function Dashboard() {
         <GridItem xs={12} sm={12} md={9} lg={9}>
           <GridItem xs={12} sm={12} md={12} lg={12}>
             <Card>
-              <CardHeader >
-                <h4 className={classes.cardTitle}><b>Bienvenido</b></h4>
-                <h2 className={classes.cardTitle}><b>David Anderson</b></h2>
+              <CardHeader>
+                <h4 className={classes.cardTitle}>
+                  <b>Bienvenido</b>
+                </h4>
+                <h2 className={classes.cardTitle}>
+                  <b>David Anderson</b>
+                </h2>
               </CardHeader>
               <CardFooter stats>
                 <h3 className={classes.cardCategory}>
-                  Is simply dum text of the printing and typesetting industry. 
-                  Lorem Ipsum has been the industry's standard dum text ever since
-                   the 1500s.
+                  Is simply dum text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dum text ever the
+                  1500s.
                 </h3>
               </CardFooter>
             </Card>
@@ -53,29 +57,60 @@ export default function Dashboard() {
           <GridItem xs={12} sm={12} md={12} lg={12}>
             <Card>
               <GridContainer>
-                <GridItem xs={12} sm={4} md={4} >
-                    <CardHeader>
-                      <ion-icon name="mail-open-outline" size="large"></ion-icon>
-                      <a>Notificaciones is simply dum</a>
-                    </CardHeader>
-                    <CardFooter stats>
-                    </CardFooter>
+                <GridItem xs={12} sm={4} md={4}>
+                  <CardHeader>
+                    <GridContainer>
+                      <GridItem xs={4} sm={4} md={4}>
+                        <ion-icon
+                          name="mail-open-outline"
+                          style={{ fontSize: "60px" }}
+                        ></ion-icon>
+                    </GridItem>
+                    <GridItem xs={8} sm={8} md={8}>
+                      <a className={classes.cardTitle}>
+                        Notificaciones is simply dum
+                      </a>
+                    </GridItem>
+                    </GridContainer>
+                  </CardHeader>
+                  <CardFooter stats></CardFooter>
                 </GridItem>
                 <GridItem xs={12} sm={4} md={4}>
                   <CardHeader>
-                  <ion-icon name="bed-outline" size="large"></ion-icon>
-                  <a>Hoteles is simply dum</a>
+                  <GridContainer>
+                  <GridItem xs={4} sm={4} md={4}>
+                        <ion-icon
+                          name="bed-outline"
+                          style={{ fontSize: "60px" }}
+                        ></ion-icon>
+                    </GridItem>
+                    <GridItem xs={8} sm={8} md={8}>
+                    <a className={classes.cardTitle}>
+                      Hoteles is simply dum
+                    </a>
+                    </GridItem>
+                    </GridContainer>
                   </CardHeader>
-                  <CardFooter stats>
-                  </CardFooter>
+                  <CardFooter stats></CardFooter>
                 </GridItem>
                 <GridItem xs={12} sm={4} md={4}>
-                <CardHeader>
-                  <ion-icon name="card-outline" size="large" ></ion-icon>
-                  <a>Pagos recibidos is simply dum</a>
+                  <CardHeader>
+                    <GridContainer>
+                    <GridItem xs={4} sm={4} md={4}>
+                        <ion-icon
+                          name="card-outline"
+                          // size="large"
+                          style={{  fontSize: "60px" }}
+                        ></ion-icon>
+                    </GridItem>
+                    <GridItem xs={8} sm={8} md={8}>
+                        <a className={classes.cardTitle}>
+                          Pagos recibidos is simply dum
+                        </a>
+                    </GridItem>
+                    </GridContainer>
                   </CardHeader>
-                  <CardFooter stats>
-                  </CardFooter>
+                  <CardFooter stats></CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
@@ -91,7 +126,9 @@ export default function Dashboard() {
                   <a href="#pablo" onClick={e => e.preventDefault()}>
                     <img src={priceImage1} alt="..." />
                   </a>
-                  <div className={classes.jarb29}><b>hola</b></div>
+                  <div className={classes.jarb29}>
+                    <b>hola</b>
+                  </div>
                 </CardHeader>
                 <CardBody>
                   <div className={classes.cardHoverUnder}>
@@ -178,7 +215,9 @@ export default function Dashboard() {
                 <CardHeader image className={classes.cardHeaderHover}>
                   <a href="#pablo" onClick={e => e.preventDefault()}>
                     <img src={priceImage3} alt="..." />
-                    <div className={classes.jarb29}><b>hola</b></div>
+                    <div className={classes.jarb29}>
+                      <b>hola</b>
+                    </div>
                   </a>
                 </CardHeader>
                 <CardBody>

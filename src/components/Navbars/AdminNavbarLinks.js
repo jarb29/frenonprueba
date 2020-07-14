@@ -13,6 +13,7 @@ import Grow from "@material-ui/core/Grow";
 import Hidden from "@material-ui/core/Hidden";
 import Popper from "@material-ui/core/Popper";
 import Divider from "@material-ui/core/Divider";
+import Timeline from "@material-ui/icons/Timeline";
 
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
@@ -111,11 +112,7 @@ export default function HeaderLinks(props) {
             (rtlActive ? classes.links + " " + classes.linksRTL : classes.links)
           }
         />
-        <Hidden mdUp implementation="css">
-          <span className={classes.linkText}>
-            {rtlActive ? "لوحة القيادة" : "Dashboard"}
-          </span>
-        </Hidden>
+
       </Button>
       <div className={managerClasses}>
         <Button
@@ -140,14 +137,6 @@ export default function HeaderLinks(props) {
             }
           />
           <span className={classes.notifications}>5</span>
-          <Hidden mdUp implementation="css">
-            <span
-              onClick={handleClickNotification}
-              className={classes.linkText}
-            >
-              {rtlActive ? "إعلام" : "Notification"}
-            </span>
-          </Hidden>
         </Button>
         <Popper
           open={Boolean(openNotification)}
@@ -227,7 +216,7 @@ export default function HeaderLinks(props) {
             label: rtlActive ? classes.labelRTL : ""
           }}
         >
-          <Person
+          <Timeline 
             className={
               classes.headerLinksSvg +
               " " +

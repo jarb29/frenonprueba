@@ -227,7 +227,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       // Tienda salsas
-      store: (e, id) => {
+      store: () => {
         getActions().tienda(`/api/tienda/tienda`);
       },
 
@@ -254,7 +254,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      salsas: (e, id) => {
+      salsas: () => {
         getActions().tiendaSalsa(`/api/tienda/salsas`);
       },
 
@@ -354,14 +354,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         let { carrito } = store;
-        let existe = false;
         let newtotalCarrito = 0;
         let newCarrito = carrito.map(item => {
           if (
             JSON.stringify(item.producto) === JSON.stringify(producto.producto)
           ) {
             item.cantidad -= 1;
-            existe = true;
             return item;
           }
           return item;
@@ -384,29 +382,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // Compra de Productos
 
-      productoComprado: (e, history) => {
-        console.log(e, 'la e')
-        const store = getStore()
+      productoComprado: () => {
+        const store = getStore();
 
         let data = {
-          "token": "slS5hrWNux44dVW9LnfMUA",
-          "data": {
-            "id": "personNickname",
-            "email": "internetEmail",
-            "gender": "personGender",
-           "street": "addressStreetName",
-            "last_login": {
-              "date_time": "dateTime|UNIX",
-              "ip4": "internetIP4"
+          token: "slS5hrWNux44dVW9LnfMUA",
+          data: {
+            id: "personNickname",
+            email: "internetEmail",
+            gender: "personGender",
+            street: "addressStreetName",
+            last_login: {
+              date_time: "dateTime|UNIX",
+              ip4: "internetIP4"
             },
-            "_repeat": 10
-            
+            _repeat: 10
           }
         };
         getActions().productosComprados(data);
       },
 
-      productosComprados: async (data) => {
+      productosComprados: async data => {
         const store = getStore();
         const { baseURL } = store;
         const resp = await fetch(baseURL, {
@@ -417,7 +413,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         });
         const dato = await resp.json();
-        console.log(dato, "para ver que llega")
+        console.log(dato, "para ver que llega");
         if (dato.msg) {
           setStore({
             productosActualizados: dato
@@ -483,13 +479,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           telefono: store.telefono
         };
 
-        getActions().registroUsuarioAdminidtrador(
-          data,
-          history
-        );
+        getActions().registroUsuarioAdminidtrador(data, history);
       },
 
-      registroUsuarioAdminidtrador: async (data) => {
+      registroUsuarioAdminidtrador: async data => {
         const store = getStore();
         const { baseURL } = store;
         const resp = await fetch(baseURL, {
@@ -506,12 +499,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         } else {
           setStore({
-            currentUser: dato,
+            currentUser: dato
           });
         }
       },
 
-      orders: (e, id) => {
+      orders: () => {
         getActions().tiendaOrders(`/api/admi/orders`);
       },
 
