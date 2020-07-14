@@ -220,6 +220,9 @@ export default function Panels() {
             </CardBody>
           </Card>
         </GridItem>
+
+
+
         <GridItem xs={12} sm={12} md={6}>
           <Card>
             <CardHeader>
@@ -291,6 +294,7 @@ export default function Panels() {
             </CardBody>
           </Card>
         </GridItem>
+        
       </GridContainer>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
