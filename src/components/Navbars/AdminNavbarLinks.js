@@ -18,7 +18,6 @@ import cx from "classnames";
 import MailIcon from "@material-ui/icons/Mail";
 
 // @material-ui/icons
-import Notifications from "@material-ui/icons/Notifications";
 import Settings from "@material-ui/icons/Settings";
 import Search from "@material-ui/icons/Search";
 
@@ -85,7 +84,7 @@ export default function HeaderLinks(props) {
         inputProps={{
           placeholder: "Search",
           inputProps: {
-            "aria-label":"Search",
+            "aria-label": "Search",
             className: classes.searchInput
           }
         }}
@@ -172,25 +171,25 @@ export default function HeaderLinks(props) {
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                        You have 5 new tasks
+                      You have 5 new tasks
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                    You're now friend with Andrew
+                      You're now friend with Andrew
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                     Another Notification
+                      Another Notification
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                  Another One
+                      Another One
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
