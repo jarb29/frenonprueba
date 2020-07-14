@@ -15,6 +15,7 @@ import Hidden from "@material-ui/core/Hidden";
 import Popper from "@material-ui/core/Popper";
 import Timeline from "@material-ui/icons/Timeline";
 import cx from "classnames";
+import MailIcon from "@material-ui/icons/Mail";
 
 // @material-ui/icons
 import Notifications from "@material-ui/icons/Notifications";
@@ -129,7 +130,7 @@ export default function HeaderLinks(props) {
             label: rtlActive ? classes.labelRTL : ""
           }}
         >
-          <Notifications
+          <MailIcon
             className={
               classes.headerLinksSvg +
               " " +
