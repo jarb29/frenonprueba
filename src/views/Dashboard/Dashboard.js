@@ -10,7 +10,6 @@ import Refresh from "@material-ui/icons/Refresh";
 import Edit from "@material-ui/icons/Edit";
 import Place from "@material-ui/icons/Place";
 import ArtTrack from "@material-ui/icons/ArtTrack";
-import NavPills from "components/NavPills/NavPills.js";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -27,7 +26,6 @@ import styles from "assets/jss/material-dashboard-pro-react/views/dashboardStyle
 import priceImage1 from "assets/img/card-2.jpeg";
 import priceImage2 from "assets/img/card-3.jpeg";
 import priceImage3 from "assets/img/card-1.jpeg";
-import Accordion from "components/Accordion/Accordion.js";
 
 const useStyles = makeStyles(styles);
 
@@ -36,239 +34,236 @@ export default function Dashboard() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={12} lg={12}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon>content_copy</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Used Space</p>
-              <h3 className={classes.cardTitle}>
-                49/50 <small>GB</small>
-              </h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Danger>
-                  <Warning />
-                </Danger>
+        <GridItem xs={10} sm={10} md={10} lg={10}>
+          <GridItem xs={12} sm={12} md={12} lg={12}>
+            <Card>
+              <CardHeader color="warning" stats icon>
+                <CardIcon color="warning">
+                  <Icon>content_copy</Icon>
+                </CardIcon>
+                <p className={classes.cardCategory}>Used Space</p>
+                <h3 className={classes.cardTitle}>
+                  49/50 <small>GB</small>
+                </h3>
+              </CardHeader>
+              <CardFooter stats>
+                <div className={classes.stats}>
+                  <Danger>
+                    <Warning />
+                  </Danger>
+                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                    Get more space
+                  </a>
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+          <GridItem xs={12} sm={12} md={12} lg={12}>
+            <Card>
+              <CardHeader color="info" stats icon>
+                <CardIcon color="info">
+                  <i className="fab fa-twitter" />
+                </CardIcon>
+                <p className={classes.cardCategory}>Followers</p>
+                <h3 className={classes.cardTitle}>+245</h3>
+              </CardHeader>
+              <CardFooter stats>
+                <div className={classes.stats}>
+                  <Update />
+                  Just Updated
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+          <br />
+          <h1>Hoteles Disponibles</h1>
+          <br />
+          <br />
+          <GridItem xs={4} sm={4} md={4}>
+            <Card product className={classes.cardHover}>
+              <CardHeader image className={classes.cardHeaderHover}>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  Get more space
+                  <img src={priceImage1} alt="..." />
                 </a>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={12} lg={12}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <i className="fab fa-twitter" />
-              </CardIcon>
-              <p className={classes.cardCategory}>Followers</p>
-              <h3 className={classes.cardTitle}>+245</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-      </GridContainer>
-      <br />
-      <h1>Hoteles Disponibles</h1>
-      <br />
-      <br />
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={4}>
-          <Card product className={classes.cardHover}>
-            <CardHeader image className={classes.cardHeaderHover}>
-              <a href="#pablo" onClick={e => e.preventDefault()}>
-                <img src={priceImage1} alt="..." />
-              </a>
-            </CardHeader>
-            <CardBody>
-              <div className={classes.cardHoverUnder}>
-                <Tooltip
-                  id="tooltip-top"
-                  title="View"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="transparent" simple justIcon>
-                    <ArtTrack className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  id="tooltip-top"
-                  title="Edit"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="success" simple justIcon>
-                    <Refresh className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  id="tooltip-top"
-                  title="Remove"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="danger" simple justIcon>
-                    <Edit className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-              </div>
-              <h4 className={classes.cardProductTitle}>
+              </CardHeader>
+              <CardBody>
+                <div className={classes.cardHoverUnder}>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="View"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="transparent" simple justIcon>
+                      <ArtTrack className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Edit"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="success" simple justIcon>
+                      <Refresh className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Remove"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="danger" simple justIcon>
+                      <Edit className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                </div>
+                <h4 className={classes.cardProductTitle}>
+                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                    Cozy 5 Stars Apartment
+                  </a>
+                </h4>
+                <p className={classes.cardProductDesciprion}>
+                  The place is close to Barceloneta Beach and bus stop just 2
+                  min by walk and near to {'"'}Naviglio{'"'} where you can enjoy
+                  the main night life in Barcelona.
+                </p>
+              </CardBody>
+              <CardFooter product>
+                <div className={classes.price}>
+                  <h4>$899/night</h4>
+                </div>
+                <div className={`${classes.stats} ${classes.productStats}`}>
+                  <Place /> Barcelona, Spain
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+          <GridItem xs={4} sm={4} md={4}>
+            <Card product className={classes.cardHover}>
+              <CardHeader image className={classes.cardHeaderHover}>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  Cozy 5 Stars Apartment
+                  <img src={priceImage2} alt="..." />
                 </a>
-              </h4>
-              <p className={classes.cardProductDesciprion}>
-                The place is close to Barceloneta Beach and bus stop just 2 min
-                by walk and near to {'"'}Naviglio{'"'} where you can enjoy the
-                main night life in Barcelona.
-              </p>
-            </CardBody>
-            <CardFooter product>
-              <div className={classes.price}>
-                <h4>$899/night</h4>
-              </div>
-              <div className={`${classes.stats} ${classes.productStats}`}>
-                <Place /> Barcelona, Spain
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <Card product className={classes.cardHover}>
-            <CardHeader image className={classes.cardHeaderHover}>
-              <a href="#pablo" onClick={e => e.preventDefault()}>
-                <img src={priceImage2} alt="..." />
-              </a>
-            </CardHeader>
-            <CardBody>
-              <div className={classes.cardHoverUnder}>
-                <Tooltip
-                  id="tooltip-top"
-                  title="View"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="transparent" simple justIcon>
-                    <ArtTrack className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  id="tooltip-top"
-                  title="Edit"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="success" simple justIcon>
-                    <Refresh className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  id="tooltip-top"
-                  title="Remove"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="danger" simple justIcon>
-                    <Edit className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-              </div>
-              <h4 className={classes.cardProductTitle}>
+              </CardHeader>
+              <CardBody>
+                <div className={classes.cardHoverUnder}>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="View"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="transparent" simple justIcon>
+                      <ArtTrack className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Edit"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="success" simple justIcon>
+                      <Refresh className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Remove"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="danger" simple justIcon>
+                      <Edit className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                </div>
+                <h4 className={classes.cardProductTitle}>
+                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                    Office Studio
+                  </a>
+                </h4>
+                <p className={classes.cardProductDesciprion}>
+                  The place is close to Metro Station and bus stop just 2 min by
+                  walk and near to {'"'}Naviglio{'"'} where you can enjoy the
+                  night life in London, UK.
+                </p>
+              </CardBody>
+              <CardFooter product>
+                <div className={classes.price}>
+                  <h4>$1.119/night</h4>
+                </div>
+                <div className={`${classes.stats} ${classes.productStats}`}>
+                  <Place /> London, UK
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+          <GridItem xs={4} sm={4} md={4}>
+            <Card product className={classes.cardHover}>
+              <CardHeader image className={classes.cardHeaderHover}>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  Office Studio
+                  <img src={priceImage3} alt="..." />
                 </a>
-              </h4>
-              <p className={classes.cardProductDesciprion}>
-                The place is close to Metro Station and bus stop just 2 min by
-                walk and near to {'"'}Naviglio{'"'} where you can enjoy the
-                night life in London, UK.
-              </p>
-            </CardBody>
-            <CardFooter product>
-              <div className={classes.price}>
-                <h4>$1.119/night</h4>
-              </div>
-              <div className={`${classes.stats} ${classes.productStats}`}>
-                <Place /> London, UK
-              </div>
-            </CardFooter>
-          </Card>
+              </CardHeader>
+              <CardBody>
+                <div className={classes.cardHoverUnder}>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="View"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="transparent" simple justIcon>
+                      <ArtTrack className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Edit"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="success" simple justIcon>
+                      <Refresh className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    id="tooltip-top"
+                    title="Remove"
+                    placement="bottom"
+                    classes={{ tooltip: classes.tooltip }}
+                  >
+                    <Button color="danger" simple justIcon>
+                      <Edit className={classes.underChartIcons} />
+                    </Button>
+                  </Tooltip>
+                </div>
+                <h4 className={classes.cardProductTitle}>
+                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                    Beautiful Castle
+                  </a>
+                </h4>
+                <p className={classes.cardProductDesciprion}>
+                  The place is close to Metro Station and bus stop just 2 min by
+                  walk and near to {'"'}Naviglio{'"'} where you can enjoy the
+                  main night life in Milan.
+                </p>
+              </CardBody>
+              <CardFooter product>
+                <div className={classes.price}>
+                  <h4>$459/night</h4>
+                </div>
+                <div className={`${classes.stats} ${classes.productStats}`}>
+                  <Place /> Milan, Italy
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
         </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <Card product className={classes.cardHover}>
-            <CardHeader image className={classes.cardHeaderHover}>
-              <a href="#pablo" onClick={e => e.preventDefault()}>
-                <img src={priceImage3} alt="..." />
-              </a>
-            </CardHeader>
-            <CardBody>
-              <div className={classes.cardHoverUnder}>
-                <Tooltip
-                  id="tooltip-top"
-                  title="View"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="transparent" simple justIcon>
-                    <ArtTrack className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  id="tooltip-top"
-                  title="Edit"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="success" simple justIcon>
-                    <Refresh className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  id="tooltip-top"
-                  title="Remove"
-                  placement="bottom"
-                  classes={{ tooltip: classes.tooltip }}
-                >
-                  <Button color="danger" simple justIcon>
-                    <Edit className={classes.underChartIcons} />
-                  </Button>
-                </Tooltip>
-              </div>
-              <h4 className={classes.cardProductTitle}>
-                <a href="#pablo" onClick={e => e.preventDefault()}>
-                  Beautiful Castle
-                </a>
-              </h4>
-              <p className={classes.cardProductDesciprion}>
-                The place is close to Metro Station and bus stop just 2 min by
-                walk and near to {'"'}Naviglio{'"'} where you can enjoy the main
-                night life in Milan.
-              </p>
-            </CardBody>
-            <CardFooter product>
-              <div className={classes.price}>
-                <h4>$459/night</h4>
-              </div>
-              <div className={`${classes.stats} ${classes.productStats}`}>
-                <Place /> Milan, Italy
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-      </GridContainer>
-
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={2} sm={2} md={2}>
           <Card>
             <CardHeader>
               <h4 className={classes.cardTitle}>
@@ -276,67 +271,20 @@ export default function Dashboard() {
               </h4>
             </CardHeader>
             <CardBody>
-              <NavPills
-                color="warning"
-                tabs={[
-                  {
-                    tabButton: "Profile",
-                    tabContent: (
-                      <span>
-                        <p>
-                          Collaboratively administrate empowered markets via
-                          plug-and-play networks. Dynamically procrastinate B2C
-                          users after installed base benefits.
-                        </p>
-                        <br />
-                        <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
-                        </p>
-                        <br />
-                        <p>This is very nice.</p>
-                      </span>
-                    )
-                  },
-                  {
-                    tabButton: "Settings",
-                    tabContent: (
-                      <span>
-                        <p>
-                          Efficiently unleash cross-media information without
-                          cross-media value. Quickly maximize timely
-                          deliverables for real-time schemas.
-                        </p>
-                        <br />
-                        <p>
-                          Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions.
-                        </p>
-                      </span>
-                    )
-                  },
-                  {
-                    tabButton: "Options",
-                    tabContent: (
-                      <span>
-                        <p>
-                          Completely synergize resource taxing relationships via
-                          premier niche markets. Professionally cultivate
-                          one-to-one customer service with robust ideas.{" "}
-                        </p>
-                        <br />
-                        <p>
-                          Dynamically innovate resource-leveling customer
-                          service for state of the art customer service.
-                        </p>
-                      </span>
-                    )
-                  }
-                ]}
-              />
+              <p>
+                Collaboratively administrate empowered markets via plug-and-play
+                networks. Dynamically procrastinate B2C users after installed
+                base benefits.
+              </p>
+              <br />
+              <p>
+                Dramatically visualize customer directed convergence without
+                revolutionary ROI. Collaboratively administrate empowered
+                markets via plug-and-play networks. Dynamically procrastinate
+                B2C users after installed base benefits.
+              </p>
+              <br />
+              <p>This is very nice.</p>
             </CardBody>
           </Card>
         </GridItem>
