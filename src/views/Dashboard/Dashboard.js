@@ -65,30 +65,12 @@ export default function Dashboard() {
                           name="mail-open-outline"
                           style={{ fontSize: "60px" }}
                         ></ion-icon>
-                    </GridItem>
-                    <GridItem xs={8} sm={8} md={8}>
-                      <a className={classes.cardTitle}>
-                        Notificaciones is simply dum
-                      </a>
-                    </GridItem>
-                    </GridContainer>
-                  </CardHeader>
-                  <CardFooter stats></CardFooter>
-                </GridItem>
-                <GridItem xs={12} sm={4} md={4}>
-                  <CardHeader>
-                  <GridContainer>
-                  <GridItem xs={4} sm={4} md={4}>
-                        <ion-icon
-                          name="bed-outline"
-                          style={{ fontSize: "60px" }}
-                        ></ion-icon>
-                    </GridItem>
-                    <GridItem xs={8} sm={8} md={8}>
-                    <a className={classes.cardTitle}>
-                      Hoteles is simply dum
-                    </a>
-                    </GridItem>
+                      </GridItem>
+                      <GridItem xs={8} sm={8} md={8}>
+                        <a className={classes.cardTitle}>
+                          Notificaciones is simply dum
+                        </a>
+                      </GridItem>
                     </GridContainer>
                   </CardHeader>
                   <CardFooter stats></CardFooter>
@@ -96,18 +78,36 @@ export default function Dashboard() {
                 <GridItem xs={12} sm={4} md={4}>
                   <CardHeader>
                     <GridContainer>
-                    <GridItem xs={4} sm={4} md={4}>
+                      <GridItem xs={4} sm={4} md={4}>
+                        <ion-icon
+                          name="bed-outline"
+                          style={{ fontSize: "60px" }}
+                        ></ion-icon>
+                      </GridItem>
+                      <GridItem xs={8} sm={8} md={8}>
+                        <a className={classes.cardTitle}>
+                          Hoteles is simply dum
+                        </a>
+                      </GridItem>
+                    </GridContainer>
+                  </CardHeader>
+                  <CardFooter stats></CardFooter>
+                </GridItem>
+                <GridItem xs={12} sm={4} md={4}>
+                  <CardHeader>
+                    <GridContainer>
+                      <GridItem xs={4} sm={4} md={4}>
                         <ion-icon
                           name="card-outline"
                           // size="large"
-                          style={{  fontSize: "60px" }}
+                          style={{ fontSize: "60px" }}
                         ></ion-icon>
-                    </GridItem>
-                    <GridItem xs={8} sm={8} md={8}>
+                      </GridItem>
+                      <GridItem xs={8} sm={8} md={8}>
                         <a className={classes.cardTitle}>
                           Pagos recibidos is simply dum
                         </a>
-                    </GridItem>
+                      </GridItem>
                     </GridContainer>
                   </CardHeader>
                   <CardFooter stats></CardFooter>

@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 // import { Manager, Target, Popper } from "react-popper";
 
 // @material-ui/core components
@@ -12,11 +13,10 @@ import Paper from "@material-ui/core/Paper";
 import Grow from "@material-ui/core/Grow";
 import Hidden from "@material-ui/core/Hidden";
 import Popper from "@material-ui/core/Popper";
-import Divider from "@material-ui/core/Divider";
 import Timeline from "@material-ui/icons/Timeline";
+import cx from "classnames";
 
 // @material-ui/icons
-import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
@@ -37,6 +37,9 @@ export default function HeaderLinks(props) {
     } else {
       setOpenNotification(event.currentTarget);
     }
+  };
+  const activeRoute = routeName => {
+    return window.location.href.indexOf(routeName) > -1 ? true : false;
   };
   const handleCloseNotification = () => {
     setOpenNotification(null);
@@ -79,9 +82,9 @@ export default function HeaderLinks(props) {
           className: classes.top + " " + classes.search
         }}
         inputProps={{
-          placeholder: rtlActive ? "بحث" : "Search",
+          placeholder: "Search",
           inputProps: {
-            "aria-label": rtlActive ? "بحث" : "Search",
+            "aria-label":"Search",
             className: classes.searchInput
           }
         }}
@@ -112,7 +115,6 @@ export default function HeaderLinks(props) {
             (rtlActive ? classes.links + " " + classes.linksRTL : classes.links)
           }
         />
-
       </Button>
       <div className={managerClasses}>
         <Button
@@ -163,37 +165,33 @@ export default function HeaderLinks(props) {
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                      {rtlActive
-                        ? "إجلاء أوزار الأسيوي حين بل, كما"
-                        : "Mike John responded to your email"}
+               
+                      Mike John responded to your email
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                      {rtlActive
-                        ? "شعار إعلان الأرضية قد ذلك"
-                        : "You have 5 new tasks"}
+                  
+                        You have 5 new tasks
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                      {rtlActive
-                        ? "ثمّة الخاصّة و على. مع جيما"
-                        : "You're now friend with Andrew"}
+                    You're now friend with Andrew
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                      {rtlActive ? "قد علاقة" : "Another Notification"}
+                     Another Notification
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                      {rtlActive ? "قد فاتّبع" : "Another One"}
+                  Another One
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
@@ -204,79 +202,40 @@ export default function HeaderLinks(props) {
       </div>
 
       <div className={managerClasses}>
-        <Button
-          color="transparent"
-          aria-label="Person"
-          justIcon
-          aria-owns={openProfile ? "profile-menu-list" : null}
-          aria-haspopup="true"
-          onClick={handleClickProfile}
-          className={rtlActive ? classes.buttonLinkRTL : classes.buttonLink}
-          muiClasses={{
-            label: rtlActive ? classes.labelRTL : ""
-          }}
-        >
-          <Timeline 
-            className={
-              classes.headerLinksSvg +
-              " " +
-              (rtlActive
-                ? classes.links + " " + classes.linksRTL
-                : classes.links)
-            }
-          />
-          <Hidden mdUp implementation="css">
-            <span onClick={handleClickProfile} className={classes.linkText}>
-              {rtlActive ? "الملف الشخصي" : "Profile"}
-            </span>
-          </Hidden>
-        </Button>
-        <Popper
-          open={Boolean(openProfile)}
-          anchorEl={openProfile}
-          transition
-          disablePortal
-          placement="bottom"
-          className={classNames({
-            [classes.popperClose]: !openProfile,
-            [classes.popperResponsive]: true,
-            [classes.popperNav]: true
+        <NavLink
+          to={"/admin/charts"}
+          className={cx(classes.navLink, {
+            [classes.navLinkActive]: activeRoute("/admin/charts")
           })}
         >
-          {({ TransitionProps }) => (
-            <Grow
-              {...TransitionProps}
-              id="profile-menu-list"
-              style={{ transformOrigin: "0 0 0" }}
-            >
-              <Paper className={classes.dropdown}>
-                <ClickAwayListener onClickAway={handleCloseProfile}>
-                  <MenuList role="menu">
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={dropdownItem}
-                    >
-                      {rtlActive ? "الملف الشخصي" : "Profile"}
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={dropdownItem}
-                    >
-                      {rtlActive ? "الإعدادات" : "Settings"}
-                    </MenuItem>
-                    <Divider light />
-                    <MenuItem
-                      onClick={handleCloseProfile}
-                      className={dropdownItem}
-                    >
-                      {rtlActive ? "الخروج" : "Log out"}
-                    </MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+          <Button
+            color="transparent"
+            aria-label="Person"
+            justIcon
+            aria-owns={openProfile ? "profile-menu-list" : null}
+            aria-haspopup="true"
+            onClick={handleClickProfile}
+            className={rtlActive ? classes.buttonLinkRTL : classes.buttonLink}
+            muiClasses={{
+              label: rtlActive ? classes.labelRTL : ""
+            }}
+          >
+            <Timeline
+              className={
+                classes.headerLinksSvg +
+                " " +
+                (rtlActive
+                  ? classes.links + " " + classes.linksRTL
+                  : classes.links)
+              }
+            />
+            <Hidden mdUp implementation="css">
+              <span onClick={handleClickProfile} className={classes.linkText}>
+                Profile
+              </span>
+            </Hidden>
+          </Button>
+        </NavLink>
       </div>
     </div>
   );
