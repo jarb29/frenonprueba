@@ -18,7 +18,7 @@ import cx from "classnames";
 
 // @material-ui/icons
 import Notifications from "@material-ui/icons/Notifications";
-import Dashboard from "@material-ui/icons/Dashboard";
+import Settings from "@material-ui/icons/Settings";
 import Search from "@material-ui/icons/Search";
 
 // core components
@@ -108,7 +108,7 @@ export default function HeaderLinks(props) {
           label: rtlActive ? classes.labelRTL : ""
         }}
       >
-        <Dashboard
+        <Settings
           className={
             classes.headerLinksSvg +
             " " +
@@ -165,14 +165,12 @@ export default function HeaderLinks(props) {
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-               
                       Mike John responded to your email
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={dropdownItem}
                     >
-                  
                         You have 5 new tasks
                     </MenuItem>
                     <MenuItem
