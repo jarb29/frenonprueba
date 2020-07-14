@@ -10,6 +10,7 @@ import Refresh from "@material-ui/icons/Refresh";
 import Edit from "@material-ui/icons/Edit";
 import Place from "@material-ui/icons/Place";
 import ArtTrack from "@material-ui/icons/ArtTrack";
+import NavPills from "components/NavPills/NavPills.js";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -26,12 +27,7 @@ import styles from "assets/jss/material-dashboard-pro-react/views/dashboardStyle
 import priceImage1 from "assets/img/card-2.jpeg";
 import priceImage2 from "assets/img/card-3.jpeg";
 import priceImage3 from "assets/img/card-1.jpeg";
-import Schedule from "@material-ui/icons/Schedule";
-
-// core components
-import NavPills from "components/NavPills/NavPills.js";
 import Accordion from "components/Accordion/Accordion.js";
-
 
 const useStyles = makeStyles(styles);
 
@@ -270,55 +266,21 @@ export default function Dashboard() {
           </Card>
         </GridItem>
       </GridContainer>
+
       <GridContainer>
         <GridItem xs={12} sm={12} md={6}>
           <Card>
             <CardHeader>
-              <h4 className={classes.cardTitle}>Collapsible Accordion</h4>
-            </CardHeader>
-            <CardBody>
-              <Accordion
-                active={0}
-                collapses={[
-                  {
-                    title: "Collapsible group Item #1",
-                    content:
-                      "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
-                  },
-                  {
-                    title: "Collapsible group Item #2",
-                    content:
-                      "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
-                  },
-                  {
-                    title: "Collapsible group Item #3",
-                    content:
-                      "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
-                  }
-                ]}
-              />
-            </CardBody>
-          </Card>
-        </GridItem>
-        
-        <GridItem xs={12} sm={12} md={6}>
-          <Card>
-            <CardHeader>
               <h4 className={classes.cardTitle}>
-                Navigation Pills Icons <small> - Vertical Tabs</small>
+                Navigation Pills <small> - Horizontal Tabs</small>
               </h4>
             </CardHeader>
             <CardBody>
               <NavPills
-                color="rose"
-                horizontal={{
-                  tabsGrid: { xs: 12, sm: 12, md: 4 },
-                  contentGrid: { xs: 12, sm: 12, md: 8 }
-                }}
+                color="warning"
                 tabs={[
                   {
-                    tabButton: "Dashboard",
-                    tabIcon: Dashboard,
+                    tabButton: "Profile",
                     tabContent: (
                       <span>
                         <p>
@@ -335,19 +297,12 @@ export default function Dashboard() {
                           installed base benefits.
                         </p>
                         <br />
-                        <p>
-                          Dramatically visualize customer directed convergence
-                          without revolutionary ROI. Collaboratively
-                          administrate empowered markets via plug-and-play
-                          networks. Dynamically procrastinate B2C users after
-                          installed base benefits.
-                        </p>
+                        <p>This is very nice.</p>
                       </span>
                     )
                   },
                   {
-                    tabButton: "Schedule",
-                    tabIcon: Schedule,
+                    tabButton: "Settings",
                     tabContent: (
                       <span>
                         <p>
@@ -358,11 +313,24 @@ export default function Dashboard() {
                         <br />
                         <p>
                           Dramatically maintain clicks-and-mortar solutions
-                          without functional solutions. Dramatically visualize
-                          customer directed convergence without revolutionary
-                          ROI. Collaboratively administrate empowered markets
-                          via plug-and-play networks. Dynamically procrastinate
-                          B2C users after installed base benefits.
+                          without functional solutions.
+                        </p>
+                      </span>
+                    )
+                  },
+                  {
+                    tabButton: "Options",
+                    tabContent: (
+                      <span>
+                        <p>
+                          Completely synergize resource taxing relationships via
+                          premier niche markets. Professionally cultivate
+                          one-to-one customer service with robust ideas.{" "}
+                        </p>
+                        <br />
+                        <p>
+                          Dynamically innovate resource-leveling customer
+                          service for state of the art customer service.
                         </p>
                       </span>
                     )
@@ -373,7 +341,6 @@ export default function Dashboard() {
           </Card>
         </GridItem>
       </GridContainer>
-
     </div>
   );
 }
