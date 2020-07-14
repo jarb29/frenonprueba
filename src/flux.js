@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     // base datos Angel
     store: {
       /////URL
-      baseURL: "https://cors-anywhere.herokuapp.com/http://jarb29.pythonanywhere.com",
+      baseURL: "https://app.fakejson.com/q",
       // baseURL: "http://jarb29.pythonanywhere.com",
       baseUURL: "http://jarb29.pythonanywhere.com",
       // baseURL: 'http://127.0.0.1:5000',
@@ -12,46 +12,45 @@ const getState = ({ getStore, getActions, setStore }) => {
       nombre: "",
       apellido: "",
       email: "",
-      telefono:"",
+      telefono: "",
       clave: "",
       currentUser: null,
       isAuthenticated: false,
-      error: null,  
-       // Nombre Producto
+      error: null,
+      // Nombre Producto
 
-       avatar: '',
-       nombreProducto: '',
-       precio: '',
-       categoria: '',
-       descripcion: '',
-       // Productos para la tienda
-       tiendaSeleccionada: [],
-       tiendatotal: [],
-       tiendaSalsa: [],
-       tiendatotalsalsa: [],
+      avatar: "",
+      nombreProducto: "",
+      precio: "",
+      categoria: "",
+      descripcion: "",
+      // Productos para la tienda
+      tiendaSeleccionada: [],
+      tiendatotal: [],
+      tiendaSalsa: [],
+      tiendatotalsalsa: [],
 
-       // Carrito
-       carrito: [],
-       totalCarrito: [],
-       
-       // Productos comprados
-       ItemProductoCompradoId: [],
-       CantidaProductoComprado: [],
-       precioProductoSeleccionado: [],
-       cantidadProductoSeleccionado: [],
-       // retorno productos comprados
-       productosActualizados: [],
+      // Carrito
+      carrito: [],
+      totalCarrito: [],
 
-       // datos del retorno para el admintrador
-       factura: [],
-       detalleFactura: [],
-       // Variables profile Page
-       profile: [],
-       // values contacto
-       name:'',
-       number:'',
-       message:'',
+      // Productos comprados
+      ItemProductoCompradoId: [],
+      CantidaProductoComprado: [],
+      precioProductoSeleccionado: [],
+      cantidadProductoSeleccionado: [],
+      // retorno productos comprados
+      productosActualizados: [],
 
+      // datos del retorno para el admintrador
+      factura: [],
+      detalleFactura: [],
+      // Variables profile Page
+      profile: [],
+      // values contacto
+      name: "",
+      number: "",
+      message: ""
     },
 
     actions: {
@@ -68,22 +67,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-// inputs
+      // inputs
       handlingInputs: e => {
         e.preventDefault();
         setStore({
           [e.target.name]: e.target.value
         });
       },
-// imagen
-        handleChangeFile: e => {
-          e.preventDefault();
-          setStore({
-            avatar: e.target.files[0]
-          })
-        },
+      // imagen
+      handleChangeFile: e => {
+        e.preventDefault();
+        setStore({
+          avatar: e.target.files[0]
+        });
+      },
 
-// Registro usuario
+      // Registro usuario
 
       registroUsuario: (e, history) => {
         e.preventDefault();
@@ -94,9 +93,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           email: store.email,
           clave: store.clave,
           apellido: store.apellido,
-          telefono: store.telefono,
+          telefono: store.telefono
         };
-        getActions().registroUsuarioEmpresa("/api/tienda/register", data, history);
+        getActions().registroUsuarioEmpresa(
+          "/api/tienda/register",
+          data,
+          history
+        );
       },
 
       registroUsuarioEmpresa: async (url, data, history) => {
@@ -126,7 +129,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-// Login usuario
+      // Login usuario
       logingUsuario: (e, history) => {
         //e.preventDefault();
 
@@ -150,7 +153,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         });
         const dato = await resp.json();
-    
+
         if (dato.msg) {
           setStore({
             error: dato
@@ -174,12 +177,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({
           currentUser: null,
           isAuthenticated: false,
-          carrito:[],
-          totalCarrito:[],
-          CantidaProductoComprado:[],
+          carrito: [],
+          totalCarrito: [],
+          CantidaProductoComprado: [],
           ItemCarrito: [],
           ItemProductoCompradoId: [],
-          precioProductoSeleccionado: [],
+          precioProductoSeleccionado: []
         });
         history.push("/Home");
       },
@@ -187,265 +190,244 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Agregando Productos
 
       handleSubmitProducto: (e, history) => {
-				e.preventDefault();
-				const store = getStore();
-				let formData = new FormData();
-				formData.append("nombreProducto", store.nombreProducto);
-				formData.append("descripcion", store.descripcion);
-				formData.append("precio", store.precio);
-				formData.append("categoria", store.categoria);
-				if (store.avatar !== ' ') {
-					formData.append("avatar", store.avatar)
+        e.preventDefault();
+        const store = getStore();
+        let formData = new FormData();
+        formData.append("nombreProducto", store.nombreProducto);
+        formData.append("descripcion", store.descripcion);
+        formData.append("precio", store.precio);
+        formData.append("categoria", store.categoria);
+        if (store.avatar !== " ") {
+          formData.append("avatar", store.avatar);
+        } else {
+          setStore({ error: { msg: "Por favor agregar foto" } });
+        }
 
-				} else { setStore({ error: { "msg": "Por favor agregar foto" } }) };
+        getActions().register("/api/admi/administrador", formData, history);
+      },
 
-
-
-				getActions().register('/api/admi/administrador', formData, history)
-			},
-
-			register: async (url, data, history) => {
-				const store = getStore();
+      register: async (url, data, history) => {
+        const store = getStore();
         const { baseURL } = store;
-				const resp = await fetch(baseURL + url, {
-					method: 'POST',
-					body: data
-				})
-				const info = await resp.json();
+        const resp = await fetch(baseURL + url, {
+          method: "POST",
+          body: data
+        });
+        const info = await resp.json();
 
-				if (info.msg) {
-					setStore({
-						error: null,
-						productoAgregado: info.msg,
-						isAuthenticated: true,
-					})
-          sessionStorage.getItem('isAuthenticated', true)
-          
+        if (info.msg) {
+          setStore({
+            error: null,
+            productoAgregado: info.msg,
+            isAuthenticated: true
+          });
+          sessionStorage.getItem("isAuthenticated", true);
         }
         history.push("/administrador");
       },
 
-
-
-// Tienda salsas
+      // Tienda salsas
       store: (e, id) => {
-
-				getActions().tienda(`/api/tienda/tienda`);
-			},
-
-			tienda: async (url) => {
-
-				const store = getStore();
-				const { baseURL } = store;
-				const resp = await fetch(baseURL + url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-
-				})
-        const dato = await resp.json();
- 
-
-				if (dato.msg) {
-					setStore({
-						error: dato
-					})
-				} else {
-					setStore({
-						tiendaSeleccionada: dato,
-						tiendatotal: dato,
-					});
-				}
+        getActions().tienda(`/api/tienda/tienda`);
       },
-      
+
+      tienda: async url => {
+        const store = getStore();
+        const { baseURL } = store;
+        const resp = await fetch(baseURL + url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const dato = await resp.json();
+
+        if (dato.msg) {
+          setStore({
+            error: dato
+          });
+        } else {
+          setStore({
+            tiendaSeleccionada: dato,
+            tiendatotal: dato
+          });
+        }
+      },
+
       salsas: (e, id) => {
+        getActions().tiendaSalsa(`/api/tienda/salsas`);
+      },
 
-				getActions().tiendaSalsa(`/api/tienda/salsas`);
-			},
-
-			tiendaSalsa: async (url) => {
-
-				const store = getStore();
-				const { baseURL } = store;
-				const resp = await fetch(baseURL + url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-
-				})
-				const dato = await resp.json();
-				if (dato.msg) {
-					setStore({
-						error: dato
-					})
-				} else {
-					setStore({
-						tiendaSalsa: dato,
-						tiendatotalsalsa: dato,
-					});
-				}
+      tiendaSalsa: async url => {
+        const store = getStore();
+        const { baseURL } = store;
+        const resp = await fetch(baseURL + url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const dato = await resp.json();
+        if (dato.msg) {
+          setStore({
+            error: dato
+          });
+        } else {
+          setStore({
+            tiendaSalsa: dato,
+            tiendatotalsalsa: dato
+          });
+        }
       },
 
       // Logica para el carrito
-      
+
       addToCart: producto => {
         const store = getStore();
 
-				let { carrito } = store;
-				let existe = false;
-				let newtotalCarrito = 0;
-				let newCarrito = carrito.map((item) => {
-					if (JSON.stringify(item.producto) === JSON.stringify(producto)) {
-						item.cantidad += 1;
-						existe = true;
-						return item;
-					}
-					return item;
-				})
-				if (!existe) {
-					newCarrito.push({
-						id: carrito.length + 1,
-						producto: producto,
-						cantidad: 1
-					})
-				}
-				newCarrito.map(item => {
-					return newtotalCarrito = newtotalCarrito + (item.cantidad * item.producto.precio);
-				})
-				setStore({
-					carrito: newCarrito,
-					totalCarrito: newtotalCarrito
-				})
+        let { carrito } = store;
+        let existe = false;
+        let newtotalCarrito = 0;
+        let newCarrito = carrito.map(item => {
+          if (JSON.stringify(item.producto) === JSON.stringify(producto)) {
+            item.cantidad += 1;
+            existe = true;
+            return item;
+          }
+          return item;
+        });
+        if (!existe) {
+          newCarrito.push({
+            id: carrito.length + 1,
+            producto: producto,
+            cantidad: 1
+          });
+        }
+        newCarrito.map(item => {
+          return (newtotalCarrito =
+            newtotalCarrito + item.cantidad * item.producto.precio);
+        });
+        setStore({
+          carrito: newCarrito,
+          totalCarrito: newtotalCarrito
+        });
       },
       // Agregando items desde el carrito
 
       addToCartI: producto => {
         const store = getStore();
 
-				let { carrito } = store;
-				let existe = false;
-				let newtotalCarrito = 0;
+        let { carrito } = store;
+        let existe = false;
+        let newtotalCarrito = 0;
 
-				let newCarrito = carrito.map((item) => {
-					if (JSON.stringify(item.producto) === JSON.stringify(producto.producto)) {
-						item.cantidad += 1;
-						existe = true;
-						return item;
-					}
-					return item;
-				})
-				if (!existe) {
-					newCarrito.push({
-						id: carrito.length + 1,
-						producto: producto,
-						cantidad: 1
-					})
-				}
-				newCarrito.map(item => {
-					return newtotalCarrito = newtotalCarrito + (item.cantidad * item.producto.precio);
-				})
-				setStore({
-					carrito: newCarrito,
-					totalCarrito: newtotalCarrito
-				})
+        let newCarrito = carrito.map(item => {
+          if (
+            JSON.stringify(item.producto) === JSON.stringify(producto.producto)
+          ) {
+            item.cantidad += 1;
+            existe = true;
+            return item;
+          }
+          return item;
+        });
+        if (!existe) {
+          newCarrito.push({
+            id: carrito.length + 1,
+            producto: producto,
+            cantidad: 1
+          });
+        }
+        newCarrito.map(item => {
+          return (newtotalCarrito =
+            newtotalCarrito + item.cantidad * item.producto.precio);
+        });
+        setStore({
+          carrito: newCarrito,
+          totalCarrito: newtotalCarrito
+        });
       },
-      
+
       // Borrando itenes desde el carrito
 
       addToCartII: producto => {
         const store = getStore();
 
-				let { carrito } = store;
-				let existe = false;
-				let newtotalCarrito = 0;
-				let newCarrito = carrito.map((item) => {
-					if (JSON.stringify(item.producto) === JSON.stringify(producto.producto)) {
-						item.cantidad -= 1;
+        let { carrito } = store;
+        let existe = false;
+        let newtotalCarrito = 0;
+        let newCarrito = carrito.map(item => {
+          if (
+            JSON.stringify(item.producto) === JSON.stringify(producto.producto)
+          ) {
+            item.cantidad -= 1;
             existe = true;
-						return item;
-					}
-					return item;
-        })
-        const isCero = (element) => element.cantidad === 0;
+            return item;
+          }
+          return item;
+        });
+        const isCero = element => element.cantidad === 0;
         let index = carrito.findIndex(isCero);
 
-        
-        if (index !==-1) {
-          newCarrito.splice(index, 1)
+        if (index !== -1) {
+          newCarrito.splice(index, 1);
         }
-				newCarrito.map(item => {
-					return newtotalCarrito = newtotalCarrito + (item.cantidad * item.producto.precio);
-				})
-				setStore({
-					carrito: newCarrito,
-					totalCarrito: newtotalCarrito
-				})
+        newCarrito.map(item => {
+          return (newtotalCarrito =
+            newtotalCarrito + item.cantidad * item.producto.precio);
+        });
+        setStore({
+          carrito: newCarrito,
+          totalCarrito: newtotalCarrito
+        });
       },
-      
+
       // Compra de Productos
 
+      productoComprado: (e, history) => {
+        console.log(e, 'la e')
+        const store = getStore()
 
-			productoComprado: (e, history) => {
-        const store = getStore();
-
-				store.carrito.map(ItemCarrito => {
-
-							store.ItemProductoCompradoId.push(ItemCarrito.producto.id);
-							store.CantidaProductoComprado.push(ItemCarrito.cantidad);
-              store.precioProductoSeleccionado.push(ItemCarrito.producto.precio);							
-					return ' '
-        });
-
-				let data = {  
-					"usuario_id": store.currentUser.Usuario.id,
-					"ItemProductoCompradoId": store.ItemProductoCompradoId,
-					"CantidaProductoComprado": store.CantidaProductoComprado,
-					"precioProductoSeleccionado": store.precioProductoSeleccionado,
-					"totalFactura":store.totalCarrito,
-					"usuarioActual":store.currentUser,
-
-				}
-
-
-				getActions().productosComprados(`/api/tienda/checkout/`, data, history);
-			},
-
-			productosComprados: async (url, data, history) => {
-				const store = getStore();
-				const { baseURL } = store;
-				const resp = await fetch(baseURL + url, {
-					method: 'PUT',
-					body: JSON.stringify(data),
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-				const dato = await resp.json();
-				if (dato.msg) {
-
-          setStore({
-            productosActualizados: dato,
-            carrito:[],
-            totalCarrito:[],
-            CantidaProductoComprado:[],
-            ItemCarrito: [],
-            ItemProductoCompradoId: [],
-            precioProductoSeleccionado: [],
-          });
-          history.push("/Home");
-			
-				} else {
-          setStore({
-						error: dato
-					})
-      
-				}
+        let data = {
+          "token": "slS5hrWNux44dVW9LnfMUA",
+          "data": {
+            "id": "personNickname",
+            "email": "internetEmail",
+            "gender": "personGender",
+           "street": "addressStreetName",
+            "last_login": {
+              "date_time": "dateTime|UNIX",
+              "ip4": "internetIP4"
+            }
+          }
+        };
+        getActions().productosComprados(data);
       },
 
+      productosComprados: async (data) => {
+        const store = getStore();
+        const { baseURL } = store;
+        const resp = await fetch(baseURL, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        const dato = await resp.json();
+        console.log(dato, "para ver que llega")
+        if (dato.msg) {
+          setStore({
+            productosActualizados: dato
+          });
+        } else {
+          setStore({
+            error: dato
+          });
+        }
+      },
 
-// Login administrador
+      // Login administrador
       logingAdministrador: (e, history) => {
         //e.preventDefault();
 
@@ -485,7 +467,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-
       // Registro usuario
 
       registroAdministrador: (e, history) => {
@@ -497,16 +478,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           email: store.email,
           clave: store.clave,
           apellido: store.apellido,
-          telefono: store.telefono,
+          telefono: store.telefono
         };
 
-        getActions().registroUsuarioAdminidtrador("/api/administrador/register", data, history);
+        getActions().registroUsuarioAdminidtrador(
+          data,
+          history
+        );
       },
 
-      registroUsuarioAdminidtrador: async (url, data, history) => {
+      registroUsuarioAdminidtrador: async (data) => {
         const store = getStore();
         const { baseURL } = store;
-        const resp = await fetch(baseURL + url, {
+        const resp = await fetch(baseURL, {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -521,93 +505,92 @@ const getState = ({ getStore, getActions, setStore }) => {
         } else {
           setStore({
             currentUser: dato,
-            isAuthenticated: true,
-            error: null
           });
-          sessionStorage.setItem("currentUser", JSON.stringify(dato));
-          sessionStorage.setItem("isAuthenticated", true);
-          history.push("/administrador");
         }
       },
 
       orders: (e, id) => {
-				getActions().tiendaOrders(`/api/admi/orders`);
-			},
+        getActions().tiendaOrders(`/api/admi/orders`);
+      },
 
-			tiendaOrders: async (url) => {
-				const store = getStore();
-				const { baseURL } = store;
-				const resp = await fetch(baseURL + url, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-
-				})
+      tiendaOrders: async url => {
+        const store = getStore();
+        const { baseURL } = store;
+        const resp = await fetch(baseURL + url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
         const dato = await resp.json();
 
-				if (dato.msg) {
-					setStore({
-						error: dato
-					})
-				} else {
-					setStore({
-						factura: dato[0],
-						detalleFactura: dato[1],
-					});
-				}
+        if (dato.msg) {
+          setStore({
+            error: dato
+          });
+        } else {
+          setStore({
+            factura: dato[0],
+            detalleFactura: dato[1]
+          });
+        }
       },
 
       activarDesactivarProducto: async (e, id, status, history) => {
         e.preventDefault();
         const store = getStore();
-        if (status === 'active') {status ='desactive'} else {status = 'active'};
+        if (status === "active") {
+          status = "desactive";
+        } else {
+          status = "active";
+        }
         let data = {
           newStatus: status
-        }
+        };
 
-				const { baseURL } = store;
-				const resp = await fetch(baseURL + `/api/editar/producto/${id}`, {
-					method: 'PUT',
-					body: JSON.stringify(data),
+        const { baseURL } = store;
+        const resp = await fetch(baseURL + `/api/editar/producto/${id}`, {
+          method: "PUT",
+          body: JSON.stringify(data),
           headers: {
-						'Content-Type': 'application/json',
-					},
-				})
-				const dato = await resp.json();
-				if (dato.msg) {
-					setStore({
-						productoEditado: dato.msg
+            "Content-Type": "application/json"
+          }
+        });
+        const dato = await resp.json();
+        if (dato.msg) {
+          setStore({
+            productoEditado: dato.msg
           });
           //history.push("/administrador");
           getActions().store();
-          getActions().salsas()
-				}
+          getActions().salsas();
+        }
       },
-      
-      profilePage: async (url) => {
-				const store = getStore();
-				const { baseURL } = store;
-				const resp = await fetch(baseURL + `/api/admin/${store.currentUser.Usuario.id}`, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
 
-				})
+      profilePage: async url => {
+        const store = getStore();
+        const { baseURL } = store;
+        const resp = await fetch(
+          baseURL + `/api/admin/${store.currentUser.Usuario.id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }
+        );
         const dato = await resp.json();
-        
-				if (dato.msg) {
-					setStore({
-						error: dato
-					})
-				} else {
-					setStore({
-						profile: dato[1],
-					});
-				}
-      },
 
+        if (dato.msg) {
+          setStore({
+            error: dato
+          });
+        } else {
+          setStore({
+            profile: dato[1]
+          });
+        }
+      },
 
       //////////
       submitcontact: (e, history) => {
@@ -618,7 +601,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           nombre: store.name,
           email: store.email,
           celular: store.number,
-          mensaje: store.message,
+          mensaje: store.message
         };
 
         getActions().submitcontacto("/api/contacto", data, history);
@@ -641,11 +624,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         } else {
           setStore({
-            currentUser: dato,
+            currentUser: dato
           });
           history.push("/Home");
         }
-      }    
+      }
     }
   };
 };

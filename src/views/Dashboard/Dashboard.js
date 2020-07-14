@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect, useContext } from "react";
+import { Context } from "../../AppContext";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -30,7 +30,13 @@ import priceImage3 from "assets/img/card-1.jpeg";
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
+  const { actions } = useContext(Context);
   const classes = useStyles();
+
+  useEffect(() => {
+    actions.productoComprado();
+  }, []);
+
   return (
     <div>
       <GridContainer>
