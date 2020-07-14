@@ -70,29 +70,7 @@ export default function Calendar() {
   };
   return (
     <div>
-      <Heading
-        textAlign="center"
-        title="React Big Calendar"
-        category={
-          <span>
-            A beautiful react component made by{" "}
-            <a
-              href="https://github.com/intljusticemission?ref=creativetim"
-              target="_blank"
-            >
-              International Justice Mission
-            </a>
-            . Please checkout their{" "}
-            <a
-              href="https://github.com/intljusticemission/react-big-calendar?ref=creativetim"
-              target="_blank"
-            >
-              full documentation.
-            </a>
-          </span>
-        }
-      />
-      {alert}
+
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={10}>
           <Card>

@@ -79,6 +79,7 @@ export default function Dashboard() {
           <h1>Hoteles Disponibles</h1>
           <br />
           <br />
+          <GridContainer>
           <GridItem xs={4} sm={4} md={4}>
             <Card product className={classes.cardHover}>
               <CardHeader image className={classes.cardHeaderHover}>
@@ -139,8 +140,9 @@ export default function Dashboard() {
                 </div>
               </CardFooter>
             </Card>
-          </GridItem>
-          <GridItem xs={4} sm={4} md={4}>
+            </GridItem>
+            <GridItem xs={4} sm={4} md={4}>
+
             <Card product className={classes.cardHover}>
               <CardHeader image className={classes.cardHeaderHover}>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -200,8 +202,9 @@ export default function Dashboard() {
                 </div>
               </CardFooter>
             </Card>
-          </GridItem>
-          <GridItem xs={4} sm={4} md={4}>
+            </GridItem>
+            <GridItem xs={4} sm={4} md={4}>
+       
             <Card product className={classes.cardHover}>
               <CardHeader image className={classes.cardHeaderHover}>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -261,7 +264,8 @@ export default function Dashboard() {
                 </div>
               </CardFooter>
             </Card>
-          </GridItem>
+            </GridItem>
+          </GridContainer>
         </GridItem>
         <GridItem xs={2} sm={2} md={2}>
           <Card>

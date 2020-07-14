@@ -12,7 +12,6 @@ var dashRoutes = [
   {
     path: "/dashboard",
     name: "Home",
-    rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: Dashboard,
     layout: "/admin"
@@ -20,7 +19,6 @@ var dashRoutes = [
   {
     path: "/calendar",
     name: "Calendario",
-    rtlName: "التقويم",
     icon: DateRange,
     component: Calendar,
     layout: "/admin"
@@ -28,7 +26,6 @@ var dashRoutes = [
   {
     path: "/perfil",
     name: "Usuarios",
-    rtlName: "الحاجيات",
     icon: WidgetsIcon,
     component: Perfil,
     layout: "/admin"
@@ -36,7 +33,6 @@ var dashRoutes = [
   {
     path: "/informe",
     name: "informe",
-    rtlName: "التقويم",
     icon: DateRange,
     component: Notifications,
     layout: "/admin"
@@ -44,7 +40,6 @@ var dashRoutes = [
   {
     path: "/charts",
     name: "Graficas",
-    rtlName: "الرسوم البيانية",
     icon: Timeline,
     component: Charts,
     layout: "/admin"
