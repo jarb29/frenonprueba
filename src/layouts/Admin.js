@@ -10,7 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
-import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
@@ -144,7 +143,7 @@ export default function Dashboard(props) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Jarb29"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -180,7 +179,6 @@ export default function Dashboard(props) {
             </Switch>
           </div>
         )}
-        {getRoute() ? <Footer fluid /> : null}
         <FixedPlugin
           handleImageClick={handleImageClick}
           handleColorClick={handleColorClick}

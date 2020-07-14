@@ -1,7 +1,7 @@
 import Calendar from "views/Calendar/Calendar.js";
 import Charts from "views/Charts/Charts.js";
 import Dashboard from "views/Dashboard/Dashboard.js";
-import Notifications from "views/Components/Notifications.js";
+import Notifications from "views/Notifications/Notifications.js";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import DateRange from "@material-ui/icons/DateRange";
 import Timeline from "@material-ui/icons/Timeline";
@@ -31,7 +31,7 @@ var dashRoutes = [
     layout: "/admin"
   },
   {
-    path: "/informe",
+    path: "/Informe",
     name: "informe",
     icon: DateRange,
     component: Notifications,
