@@ -3,7 +3,6 @@ import { Context } from "../../AppContext";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
-import Hotel from "@material-ui/icons/Hotel";
 import Edit from "@material-ui/icons/Edit";
 import ArtTrack from "@material-ui/icons/ArtTrack";
 
@@ -15,6 +14,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import Modal from "components/Modal/Modal";
 import styles from "assets/jss/material-dashboard-pro-react/views/dashboardStyle.js";
 
 import priceImage1 from "assets/img/card-2.jpeg";
@@ -123,15 +123,13 @@ export default function Dashboard() {
           <br />
           <GridContainer>
             {store.hoteles.map((hot, index) => {
+              let picture = index % 2 == 0 ? priceImage1 : priceImage3;
               return (
                 <GridItem xs={12} sm={4} md={4} key={index}>
                   <Card product className={classes.cardHover}>
                     <CardHeader image className={classes.cardHeaderHover}>
                       <a href="#pablo" onClick={e => e.preventDefault()}>
-                        <img
-                          src={index % 2 == 0 ? priceImage1 : priceImage3}
-                          alt="..."
-                        />
+                        <img src={picture} alt="..." />
                       </a>
                       <div className={classes.jarb29}>
                         <b>{hot.companyName}</b>
@@ -149,16 +147,16 @@ export default function Dashboard() {
                             <ArtTrack className={classes.underChartIcons} />
                           </Button>
                         </Tooltip>
-                        <Tooltip
+                        {/* <Tooltip
                           id="tooltip-top"
                           title="Reservar"
                           placement="bottom"
                           classes={{ tooltip: classes.tooltip }}
-                        >
+                        > */}
                           <Button color="success" simple justIcon>
-                            <Hotel className={classes.underChartIcons} />
+                            <Modal data={hot} pic={picture}/>
                           </Button>
-                        </Tooltip>
+                        {/* </Tooltip> */}
                         <Tooltip
                           id="tooltip-top"
                           title="Guardar"
@@ -178,7 +176,7 @@ export default function Dashboard() {
           </GridContainer>
         </GridItem>
         <GridItem xs={12} sm={12} md={3}>
-          <Card  className={classes.center}>
+          <Card className={classes.center}>
             <CardHeader>
               <h5 className={classes.cardTitle}>
                 <b>Notificaciones</b>

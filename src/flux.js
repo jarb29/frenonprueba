@@ -14,21 +14,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
     actions: {
       // autenticacion
-      isAuthenticated: () => {
-        if (sessionStorage.getItem("currentUser")) {
-          // Restaura el contenido al campo de texto
-          let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-          let isAuthenticated = sessionStorage.getItem("isAuthenticated");
-          setStore({
-            currentUser: currentUser,
-            isAuthenticated: isAuthenticated
-          });
-        }
-      },
 
       // inputs
-      handlingInputs: e => {
+      handlingInputs: (e, men) => {
         e.preventDefault();
+        console.log(e, "en el flux")
+        console.log(men, "en el flux")
         setStore({
           [e.target.name]: e.target.value
         });
@@ -38,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       productoComprado: () => {
         let data = {
-          token: "slS5hrWNux44dVW9LnfMUA",
+          token: "qEuV9ijUJN4sC_xFPSM7Tw",
           data: {
             id: "personNickname",
             companyName: "companyName",
@@ -73,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       mensajes: () => {
         let data = {
-          token: "slS5hrWNux44dVW9LnfMUA",
+          token: "qEuV9ijUJN4sC_xFPSM7Tw",
           data: {
             id: "personNickname",
             name: "name",

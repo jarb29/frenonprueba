@@ -26,7 +26,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function Modal(props) {
+export default function ModalMensaje(props) {
   const classes = useStyles();
   const [tl, setTL] = React.useState(false);
   const [tc, setTC] = React.useState(false);
@@ -105,12 +105,8 @@ export default function Modal(props) {
     <div>
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
-                    <Button
-                      color="success" simple justIcon
-                      onClick={() => setNoticeModal(true)}
-                    >
-                     <Hotel className={classes.underChartIcons} />
-                    </Button>
+                   {props.data? setNoticeModal(true): null}
+            
                     <Dialog
                       classes={{
                         root: classes.center + " " + classes.modalRoot,

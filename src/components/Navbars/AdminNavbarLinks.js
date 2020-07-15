@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../../AppContext";
 import classNames from "classnames";
 import PropTypes from "prop-types";
@@ -12,7 +12,6 @@ import MenuList from "@material-ui/core/MenuList";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Paper from "@material-ui/core/Paper";
 import Grow from "@material-ui/core/Grow";
-import Hidden from "@material-ui/core/Hidden";
 import Popper from "@material-ui/core/Popper";
 import Timeline from "@material-ui/icons/Timeline";
 import cx from "classnames";
@@ -27,6 +26,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-pro-react/components/adminNavbarLinksStyle.js";
+import ModalMensaje from "components/ModalMensaje/ModalMensaje";
 
 const useStyles = makeStyles(styles);
 
@@ -45,6 +45,7 @@ export default function HeaderLinks(props) {
   };
   const handleCloseNotification = () => {
     setOpenNotification(null);
+
   };
   const [openProfile, setOpenProfile] = React.useState(null);
   const handleClickProfile = event => {
@@ -85,6 +86,7 @@ export default function HeaderLinks(props) {
         formControlProps={{
           className: classes.top + " " + classes.search
         }}
+        name="name"
         inputProps={{
           placeholder: "Search",
           inputProps: {
@@ -92,6 +94,7 @@ export default function HeaderLinks(props) {
             className: classes.searchInput
           }
         }}
+        onChange={e => actions.handlingInputs(e)}
       />
       <Button
         color="white"
@@ -170,6 +173,7 @@ export default function HeaderLinks(props) {
                         <MenuItem
                           onClick={handleCloseNotification}
                           className={dropdownItem}
+                          key={index}
                         >
                           Tiene un mensaje de, {men.name}
                         </MenuItem>
@@ -211,11 +215,6 @@ export default function HeaderLinks(props) {
                   : classes.links)
               }
             />
-            <Hidden mdUp implementation="css">
-              <span onClick={handleClickProfile} className={classes.linkText}>
-                Profile
-              </span>
-            </Hidden>
           </Button>
         </NavLink>
       </div>
