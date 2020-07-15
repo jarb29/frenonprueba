@@ -18,7 +18,6 @@ import CardFooter from "components/Card/CardFooter.js";
 import styles from "assets/jss/material-dashboard-pro-react/views/dashboardStyle.js";
 
 import priceImage1 from "assets/img/card-2.jpeg";
-import priceImage2 from "assets/img/card-3.jpeg";
 import priceImage3 from "assets/img/card-1.jpeg";
 
 const useStyles = makeStyles(styles);
@@ -31,8 +30,8 @@ export default function Dashboard() {
     actions.productoComprado();
     actions.mensajes();
   }, []);
-  
-  console.log(store.mensajes, "para ver que llega")
+
+  console.log(store.mensajes, "para ver que llega");
 
   return (
     <div>
@@ -123,142 +122,59 @@ export default function Dashboard() {
           <br />
           <br />
           <GridContainer>
-            <GridItem xs={12} sm={4} md={4}>
-              <Card product className={classes.cardHover}>
-                <CardHeader image className={classes.cardHeaderHover}>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    <img src={priceImage1} alt="..." />
-                  </a>
-                  <div className={classes.jarb29}>
-                    <b>hola</b>
-                  </div>
-                </CardHeader>
-                <CardBody>
-                  <div className={classes.cardHoverUnder}>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="View"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="transparent" simple justIcon>
-                        <ArtTrack className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Edit"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="success" simple justIcon>
-                        <Refresh className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Remove"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="danger" simple justIcon>
-                        <Edit className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                  </div>
-                </CardBody>
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={4} md={4}>
-              <Card product className={classes.cardHover}>
-                <CardHeader image className={classes.cardHeaderHover}>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    <img src={priceImage2} alt="..." />
-                    <div className={classes.jarb29}> hola</div>
-                  </a>
-                </CardHeader>
-                <CardBody>
-                  <div className={classes.cardHoverUnder}>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="View"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="transparent" simple justIcon>
-                        <ArtTrack className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Edit"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="success" simple justIcon>
-                        <Refresh className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Remove"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="danger" simple justIcon>
-                        <Edit className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                  </div>
-                </CardBody>
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={4} md={4}>
-              <Card product className={classes.cardHover}>
-                <CardHeader image className={classes.cardHeaderHover}>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    <img src={priceImage3} alt="..." />
-                    <div className={classes.jarb29}>
-                      <b>hola</b>
-                    </div>
-                  </a>
-                </CardHeader>
-                <CardBody>
-                  <div className={classes.cardHoverUnder}>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="View"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="transparent" simple justIcon>
-                        <ArtTrack className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Edit"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="success" simple justIcon>
-                        <Refresh className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Remove"
-                      placement="bottom"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <Button color="danger" simple justIcon>
-                        <Edit className={classes.underChartIcons} />
-                      </Button>
-                    </Tooltip>
-                  </div>
-                </CardBody>
-              </Card>
-            </GridItem>
+            {store.hoteles.map((hot, index) => {
+              return (
+                <GridItem xs={12} sm={4} md={4} key={index}>
+                  <Card product className={classes.cardHover}>
+                    <CardHeader image className={classes.cardHeaderHover}>
+                      <a href="#pablo" onClick={e => e.preventDefault()}>
+                        <img
+                          src={index % 2 == 0 ? priceImage1 : priceImage3}
+                          alt="..."
+                        />
+                      </a>
+                      <div className={classes.jarb29}>
+                          <b>{hot.companyName}</b>
+                      </div>
+                    </CardHeader>
+                    <CardBody>
+                      <div className={classes.cardHoverUnder}>
+                        <Tooltip
+                          id="tooltip-top"
+                          title="View"
+                          placement="bottom"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <Button color="transparent" simple justIcon>
+                            <ArtTrack className={classes.underChartIcons} />
+                          </Button>
+                        </Tooltip>
+                        <Tooltip
+                          id="tooltip-top"
+                          title="Edit"
+                          placement="bottom"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <Button color="success" simple justIcon>
+                            <Refresh className={classes.underChartIcons} />
+                          </Button>
+                        </Tooltip>
+                        <Tooltip
+                          id="tooltip-top"
+                          title="Remove"
+                          placement="bottom"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <Button color="danger" simple justIcon>
+                            <Edit className={classes.underChartIcons} />
+                          </Button>
+                        </Tooltip>
+                      </div>
+                    </CardBody>
+                  </Card>
+                </GridItem>
+              );
+            })}
           </GridContainer>
         </GridItem>
         <GridItem xs={12} sm={12} md={3}>
@@ -270,19 +186,17 @@ export default function Dashboard() {
             </CardHeader>
             {store.mensajes.map((men, index) => {
               return (
-            <Card key={index}>
-              <CardBody>
-                  <p>{men.name}</p>
-                <br />
-                <p>
-                {men.message}
-                </p>
-                <br />
-                <p>This is very nice.</p>
-              </CardBody>
-            </Card>)
-            })
-          }
+                <Card key={index}>
+                  <CardBody>
+                    <p>{men.name}</p>
+                    <br />
+                    <p>{men.message}</p>
+                    <br />
+                    <p>This is very nice.</p>
+                  </CardBody>
+                </Card>
+              );
+            })}
           </Card>
         </GridItem>
       </GridContainer>
