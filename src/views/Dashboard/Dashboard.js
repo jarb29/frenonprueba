@@ -178,7 +178,7 @@ export default function Dashboard() {
           </GridContainer>
         </GridItem>
         <GridItem xs={12} sm={12} md={3}>
-          <Card>
+          <Card >
             <CardHeader>
               <h5 className={classes.cardTitle}>
                 <b>Notificaciones</b>
@@ -187,7 +187,7 @@ export default function Dashboard() {
             {store.mensajes.map((men, index) => {
               let date = men.date_time.slice(3, 11);
               return (
-                <Card key={index}>
+                <Card key={index} style={{ marging: "10px" }}>
                   <CardBody>
                     <GridContainer>
                       <GridItem xs={8} sm={8} md={8}>

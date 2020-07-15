@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../../AppContext";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
@@ -30,6 +31,7 @@ import styles from "assets/jss/material-dashboard-pro-react/components/adminNavb
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
+  const { store, actions } = useContext(Context);
   const [openNotification, setOpenNotification] = React.useState(null);
   const handleClickNotification = event => {
     if (openNotification && openNotification.contains(event.target)) {
@@ -74,6 +76,8 @@ export default function HeaderLinks(props) {
   const managerClasses = classNames({
     [classes.managerClasses]: true
   });
+
+  console.log(store.mensajes.length);
   return (
     <div className={wrapper}>
       <CustomInput
@@ -138,7 +142,7 @@ export default function HeaderLinks(props) {
                 : classes.links)
             }
           />
-          <span className={classes.notifications}>5</span>
+          <span className={classes.notifications}>{store.mensajes.length}</span>
         </Button>
         <Popper
           open={Boolean(openNotification)}
@@ -161,36 +165,16 @@ export default function HeaderLinks(props) {
               <Paper className={classes.dropdown}>
                 <ClickAwayListener onClickAway={handleCloseNotification}>
                   <MenuList role="menu">
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={dropdownItem}
-                    >
-                      Mike John responded to your email
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={dropdownItem}
-                    >
-                      You have 5 new tasks
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={dropdownItem}
-                    >
-                      You're now friend with Andrew
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={dropdownItem}
-                    >
-                      Another Notification
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={dropdownItem}
-                    >
-                      Another One
-                    </MenuItem>
+                    {store.mensajes.map((men, index) => {
+                      return (
+                        <MenuItem
+                          onClick={handleCloseNotification}
+                          className={dropdownItem}
+                        >
+                          Tiene un mensaje de, {men.name}
+                        </MenuItem>
+                      );
+                    })}
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
