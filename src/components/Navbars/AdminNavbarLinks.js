@@ -75,7 +75,6 @@ export default function HeaderLinks(props) {
     [classes.managerClasses]: true
   });
 
-  console.log(store.mensajes.length);
   return (
     <div className={wrapper}>
       <Input

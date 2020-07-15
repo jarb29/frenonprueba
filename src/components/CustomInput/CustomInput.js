@@ -62,7 +62,6 @@ export default function CustomInput(props) {
     [classes.labelRootSuccess]: success && !error
   });
 
-  console.log(props, "valores del input")
   return (
     <FormControl {...formControlProps} className={formControlClasses}>
       {labelText !== undefined ? (

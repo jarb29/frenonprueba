@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       /////URL
       baseURL: "https://app.fakejson.com/q",
+      token: "L9bg6PhqeyyhuLBUB6WZHg",
 
       // Variables del retorno
       mensajes: [],
@@ -17,8 +18,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       // inputs
       valoresEntrada: e => {
         e.preventDefault();
-        console.log(e.target.name, "en el flux");
-        console.log(e.target.value, "en el flux");
         setStore({
           [e.target.name]: e.target.value
         });
@@ -27,8 +26,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Compra de Productos
 
       hoteles: () => {
+        const store = getStore();
+        const { token } = store;
         let data = {
-          token: "qEuV9ijUJN4sC_xFPSM7Tw",
+          token: token,
           data: {
             id: "personNickname",
             companyName: "companyName",
@@ -49,7 +50,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         });
         const dato = await resp.json();
-        console.log(dato, "para ver que llega");
         if (dato.msg) {
           setStore({
             error: dato
@@ -63,8 +63,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       mensajes: () => {
+        const store = getStore();
+        const { token } = store;
         let data = {
-          token: "qEuV9ijUJN4sC_xFPSM7Tw",
+          token: token,
           data: {
             id: "personNickname",
             name: "name",
@@ -87,7 +89,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         });
         const dato = await resp.json();
-        console.log(dato, "para ver que llega");
         if (dato.msg) {
           setStore({
             error: dato
@@ -101,9 +102,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       filtro: e => {
         const store = getStore();
-        console.log(e.target.name);
-        console.log(store.hoteles, "hoteles");
-        console.log(e.target.value.length);
         if (e.target.value.length === 0) {
           setStore({ hoteles: store.hotelesII });
         } else {

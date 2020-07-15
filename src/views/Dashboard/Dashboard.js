@@ -31,7 +31,6 @@ export default function Dashboard() {
     actions.mensajes();
   }, []);
 
-  console.log(store.hoteles, "para ver que llega");
 
   return (
     <div>

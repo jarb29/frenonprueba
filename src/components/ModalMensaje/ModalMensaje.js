@@ -99,7 +99,6 @@ export default function ModalMensaje(props) {
         break;
     }
   };
-  console.log(props, "props que llegan")
   
   return (
     <div>
