@@ -134,7 +134,7 @@ export default function Dashboard() {
                         />
                       </a>
                       <div className={classes.jarb29}>
-                          <b>{hot.companyName}</b>
+                        <b>{hot.companyName}</b>
                       </div>
                     </CardHeader>
                     <CardBody>
@@ -185,14 +185,23 @@ export default function Dashboard() {
               </h5>
             </CardHeader>
             {store.mensajes.map((men, index) => {
+              let date = men.date_time.slice(3, 11);
               return (
                 <Card key={index}>
                   <CardBody>
-                    <p>{men.name}</p>
-                    <br />
+                    <GridContainer>
+                      <GridItem xs={8} sm={8} md={8}>
+                        <ion-icon
+                          name="mail-open-outline"
+                          style={{ fontSize: "30px" }}
+                        ></ion-icon>
+                      </GridItem>
+                      <GridItem xs={4} sm={4} md={4}>
+                        <h5 className={classes.cardCategory}>{date}</h5>
+                      </GridItem>
+                    </GridContainer>
+                    <h5 className={classes.cardTitle}>{men.name}</h5>
                     <p>{men.message}</p>
-                    <br />
-                    <p>This is very nice.</p>
                   </CardBody>
                 </Card>
               );
