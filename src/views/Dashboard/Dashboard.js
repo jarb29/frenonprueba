@@ -265,22 +265,24 @@ export default function Dashboard() {
                 <b>Notificaciones</b>
               </h5>
             </CardHeader>
-            <CardBody>
-              <p>
-                Collaboratively administrate empowered markets via plug-and-play
-                networks. Dynamically procrastinate B2C users after installed
-                base benefits.
-              </p>
-              <br />
-              <p>
-                Dramatically visualize customer directed convergence without
-                revolutionary ROI. Collaboratively administrate empowered
-                markets via plug-and-play networks. Dynamically procrastinate
-                B2C users after installed base benefits.
-              </p>
-              <br />
-              <p>This is very nice.</p>
-            </CardBody>
+            <Card>
+              <CardBody>
+                <p>
+                  Collaboratively administrate empowered markets via plug-and-play
+                  networks. Dynamically procrastinate B2C users after installed
+                  base benefits.
+                </p>
+                <br />
+                <p>
+                  Dramatically visualize customer directed convergence without
+                  revolutionary ROI. Collaboratively administrate empowered
+                  markets via plug-and-play networks. Dynamically procrastinate
+                  B2C users after installed base benefits.
+                </p>
+                <br />
+                <p>This is very nice.</p>
+              </CardBody>
+            </Card>
           </Card>
         </GridItem>
       </GridContainer>
