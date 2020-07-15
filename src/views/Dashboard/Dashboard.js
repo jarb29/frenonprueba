@@ -3,7 +3,7 @@ import { Context } from "../../AppContext";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
-import Refresh from "@material-ui/icons/Refresh";
+import Hotel from "@material-ui/icons/Hotel";
 import Edit from "@material-ui/icons/Edit";
 import ArtTrack from "@material-ui/icons/ArtTrack";
 
@@ -141,7 +141,7 @@ export default function Dashboard() {
                       <div className={classes.cardHoverUnder}>
                         <Tooltip
                           id="tooltip-top"
-                          title="View"
+                          title="Ver"
                           placement="bottom"
                           classes={{ tooltip: classes.tooltip }}
                         >
@@ -151,17 +151,17 @@ export default function Dashboard() {
                         </Tooltip>
                         <Tooltip
                           id="tooltip-top"
-                          title="Edit"
+                          title="Reservar"
                           placement="bottom"
                           classes={{ tooltip: classes.tooltip }}
                         >
                           <Button color="success" simple justIcon>
-                            <Refresh className={classes.underChartIcons} />
+                            <Hotel className={classes.underChartIcons} />
                           </Button>
                         </Tooltip>
                         <Tooltip
                           id="tooltip-top"
-                          title="Remove"
+                          title="Guardar"
                           placement="bottom"
                           classes={{ tooltip: classes.tooltip }}
                         >
@@ -178,7 +178,7 @@ export default function Dashboard() {
           </GridContainer>
         </GridItem>
         <GridItem xs={12} sm={12} md={3}>
-          <Card >
+          <Card  className={classes.center}>
             <CardHeader>
               <h5 className={classes.cardTitle}>
                 <b>Notificaciones</b>
