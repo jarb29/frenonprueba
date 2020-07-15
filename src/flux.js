@@ -7,9 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // Variables del retorno
       mensajes: [],
-      hoteles: []
-
-
+      hoteles: [],
+      hotelesII: []
     },
 
     actions: {
@@ -18,16 +17,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       // inputs
       valoresEntrada: e => {
         e.preventDefault();
-        console.log(e.target.name, "en el flux")
-        console.log(e.target.value, "en el flux")
+        console.log(e.target.name, "en el flux");
+        console.log(e.target.value, "en el flux");
         setStore({
           [e.target.name]: e.target.value
         });
       },
-  
+
       // Compra de Productos
 
-      productoComprado: () => {
+      hoteles: () => {
         let data = {
           token: "qEuV9ijUJN4sC_xFPSM7Tw",
           data: {
@@ -37,9 +36,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             _repeat: 10
           }
         };
-        getActions().productosComprados(data);
+        getActions().hotelesRetorno(data);
       },
-      productosComprados: async data => {
+      hotelesRetorno: async data => {
         const store = getStore();
         const { baseURL } = store;
         const resp = await fetch(baseURL, {
@@ -57,7 +56,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         } else {
           setStore({
-            hoteles: dato
+            hoteles: dato,
+            hotelesII: dato
           });
         }
       },
@@ -71,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             date_time: "dateTime|UNIX",
             message: "It is a long established fact that a reader will",
             _repeat: 10
-          },
+          }
         };
         getActions().retornomensajes(data);
       },
@@ -99,10 +99,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-
-
-
-
+      filtro: (e, contact) => {
+        const store = getStore();
+        console.log(e.target.name);
+        console.log(e.target.value);
+        if (e.target.name === undefined) {
+          setStore({ hoteles: store.hotelesII });
+        } else {
+          setStore({
+            hotelesII: store.filteredTiendas.filter(
+              tienda => tienda.categoria === contact
+            )
+          });
+        }
+      }
     }
   };
 };

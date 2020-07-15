@@ -27,7 +27,7 @@ export default function Dashboard() {
   const classes = useStyles();
 
   useEffect(() => {
-    actions.productoComprado();
+    actions.hoteles();
     actions.mensajes();
   }, []);
 

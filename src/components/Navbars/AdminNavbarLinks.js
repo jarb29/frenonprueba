@@ -43,7 +43,6 @@ export default function HeaderLinks(props) {
   };
   const handleCloseNotification = () => {
     setOpenNotification(null);
-
   };
   const [openProfile, setOpenProfile] = React.useState(null);
   const handleClickProfile = event => {
@@ -83,18 +82,18 @@ export default function HeaderLinks(props) {
         rtlActive={rtlActive}
         formControlProps={{
           className: classes.top + " " + classes.search
-        }} 
+        }}
         inputProps={{
           placeholder: "Search",
           inputProps: {
             "aria-label": "Search",
-            className: classes.searchInput,
-          }    
+            className: classes.searchInput
+          }
         }}
         type="busqueda"
         name="busqueda"
-          onChange={ event => {
-            actions.valoresEntrada(event)
+        onChange={event => {
+          actions.filtro(event);
         }}
       />
       <Button
