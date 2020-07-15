@@ -99,16 +99,16 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      filtro: (e, contact) => {
+      filtro: e => {
         const store = getStore();
         console.log(e.target.name);
-        console.log(e.target.value);
-        if (e.target.name === undefined) {
+        console.log(e.target.value.length);
+        if (e.target.value.length === 0) {
           setStore({ hoteles: store.hotelesII });
         } else {
           setStore({
-            hotelesII: store.filteredTiendas.filter(
-              tienda => tienda.categoria === contact
+            hoteles: store.hotelesII.filter(
+              hotel => hotel.name === e.target.value
             )
           });
         }
