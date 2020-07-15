@@ -24,12 +24,15 @@ import priceImage3 from "assets/img/card-1.jpeg";
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const classes = useStyles();
 
   useEffect(() => {
     actions.productoComprado();
+    actions.mensajes();
   }, []);
+  
+  console.log(store.mensajes, "para ver que llega")
 
   return (
     <div>
@@ -265,24 +268,21 @@ export default function Dashboard() {
                 <b>Notificaciones</b>
               </h5>
             </CardHeader>
-            <Card>
+            {store.mensajes.map((men, index) => {
+              return (
+            <Card key={index}>
               <CardBody>
-                <p>
-                  Collaboratively administrate empowered markets via plug-and-play
-                  networks. Dynamically procrastinate B2C users after installed
-                  base benefits.
-                </p>
+                  <p>{men.name}</p>
                 <br />
                 <p>
-                  Dramatically visualize customer directed convergence without
-                  revolutionary ROI. Collaboratively administrate empowered
-                  markets via plug-and-play networks. Dynamically procrastinate
-                  B2C users after installed base benefits.
+                {men.message}
                 </p>
                 <br />
                 <p>This is very nice.</p>
               </CardBody>
-            </Card>
+            </Card>)
+            })
+          }
           </Card>
         </GridItem>
       </GridContainer>
