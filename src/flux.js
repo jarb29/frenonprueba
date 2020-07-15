@@ -102,13 +102,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       filtro: e => {
         const store = getStore();
         console.log(e.target.name);
+        console.log(store.hoteles, "hoteles");
         console.log(e.target.value.length);
         if (e.target.value.length === 0) {
           setStore({ hoteles: store.hotelesII });
         } else {
           setStore({
             hoteles: store.hotelesII.filter(
-              hotel => hotel.name === e.target.value
+              hotel => hotel.companyName.toLowerCase().slice(0, e.target.value.length) === e.target.value.toLowerCase()
             )
           });
         }
