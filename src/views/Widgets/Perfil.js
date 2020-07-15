@@ -82,14 +82,13 @@ export default function Perfil() {
             </div>
             <CardBody>
               <h5 className={classes.cardTestimonialDescription}>
-                Your products, all the kits that I have downloaded from your
-                site and worked with are sooo cool! I love the color mixtures,
+                I love the color mixtures,
                 cards... everything. Keep up the great work!
               </h5>
             </CardBody>
             <CardFooter testimonial>
-              <h4 className={classes.cardTitle}>Alec Thompson</h4>
-              <h6 className={classes.cardCategory}>@ALECTHOMPSON</h6>
+              <h4 className={classes.cardTitle}>Jarb29</h4>
+              <h6 className={classes.cardCategory}>@Jarb29</h6>
               <CardAvatar testimonial testimonialFooter>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
                   <img src={image} alt="..." />
