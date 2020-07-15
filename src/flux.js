@@ -16,10 +16,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       // autenticacion
 
       // inputs
-      handlingInputs: (e, men) => {
+      valoresEntrada: e => {
         e.preventDefault();
-        console.log(e, "en el flux")
-        console.log(men, "en el flux")
+        console.log(e.target.name, "en el flux")
+        console.log(e.target.value, "en el flux")
         setStore({
           [e.target.name]: e.target.value
         });

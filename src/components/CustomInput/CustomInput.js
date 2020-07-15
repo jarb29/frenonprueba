@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../AppContext";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
@@ -15,6 +16,7 @@ import styles from "assets/jss/material-dashboard-pro-react/components/customInp
 const useStyles = makeStyles(styles);
 
 export default function CustomInput(props) {
+  const { store, actions } = useContext(Context);
   const classes = useStyles();
   const {
     formControlProps,
@@ -59,6 +61,8 @@ export default function CustomInput(props) {
     [classes.labelRootError]: error,
     [classes.labelRootSuccess]: success && !error
   });
+
+  console.log(props, "valores del input")
   return (
     <FormControl {...formControlProps} className={formControlClasses}>
       {labelText !== undefined ? (

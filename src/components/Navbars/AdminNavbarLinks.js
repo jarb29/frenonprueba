@@ -22,11 +22,9 @@ import Settings from "@material-ui/icons/Settings";
 import Search from "@material-ui/icons/Search";
 
 // core components
-import CustomInput from "components/CustomInput/CustomInput.js";
+import Input from "@material-ui/core/Input";
 import Button from "components/CustomButtons/Button.js";
-
 import styles from "assets/jss/material-dashboard-pro-react/components/adminNavbarLinksStyle.js";
-import ModalMensaje from "components/ModalMensaje/ModalMensaje";
 
 const useStyles = makeStyles(styles);
 
@@ -81,20 +79,23 @@ export default function HeaderLinks(props) {
   console.log(store.mensajes.length);
   return (
     <div className={wrapper}>
-      <CustomInput
+      <Input
         rtlActive={rtlActive}
         formControlProps={{
           className: classes.top + " " + classes.search
-        }}
-        name="name"
+        }} 
         inputProps={{
           placeholder: "Search",
           inputProps: {
             "aria-label": "Search",
-            className: classes.searchInput
-          }
+            className: classes.searchInput,
+          }    
         }}
-        onChange={e => actions.handlingInputs(e)}
+        type="busqueda"
+        name="busqueda"
+          onChange={ event => {
+            actions.valoresEntrada(event)
+        }}
       />
       <Button
         color="white"
