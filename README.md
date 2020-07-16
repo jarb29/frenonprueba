@@ -1,12 +1,18 @@
 ## Quick start
+La mayoria de los componentes usados son de Material-ui.
 
-Quick start options:
+Pasos: 
+1) Npm Install ...
+2) npm install @material-ui/core
+3) npm install @material-ui/icons
+
+En general con el paso 1 debe ser suficinet pero en caso de presentar problemas run pasos 2 y 3. 
+
 
 ## File Structure
 
 Within the download you'll find the following directories and files:
 
-```
 material-dashboard-pro-react
 .
 ├── README.md
@@ -94,9 +100,6 @@ material-dashboard-pro-react
     ├── routes.js
 ```
 
-## Browser Support
-
-## Resources
 
 
 
