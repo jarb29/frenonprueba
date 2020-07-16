@@ -4,10 +4,6 @@
 var Chartist = require("chartist");
 
 // ##############################
-// // // Charts used in Dahsboard view
-// #############################
-
-// ##############################
 // // // variables used to create animation on charts
 // #############################
 

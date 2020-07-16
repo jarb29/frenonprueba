@@ -3,30 +3,18 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Slide from "@material-ui/core/Slide";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions";
 
 // @material-ui/icons
 import AddAlert from "@material-ui/icons/AddAlert";
-import Close from "@material-ui/icons/Close";
 
 // core components
-import Heading from "components/Heading/Heading.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import SnackbarContent from "components/Snackbar/SnackbarContent.js";
-import Button from "components/CustomButtons/Button.js";
-import Snackbar from "components/Snackbar/Snackbar.js";
-import Instruction from "components/Instruction/Instruction.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 
 import styles from "assets/jss/material-dashboard-pro-react/views/notificationsStyle.js";
-
-import noticeModal1 from "assets/img/card-1.jpeg";
-import noticeModal2 from "assets/img/card-2.jpeg";
 
 const useStyles = makeStyles(styles);
 
@@ -55,60 +43,7 @@ export default function Notifications() {
       }
     };
   });
-  const showNotification = place => {
-    switch (place) {
-      case "tl":
-        if (!tl) {
-          setTL(true);
-          setTimeout(function() {
-            setTL(false);
-          }, 6000);
-        }
-        break;
-      case "tc":
-        if (!tc) {
-          setTC(true);
-          setTimeout(function() {
-            setTC(false);
-          }, 6000);
-        }
-        break;
-      case "tr":
-        if (!tr) {
-          setTR(true);
-          setTimeout(function() {
-            setTR(false);
-          }, 6000);
-        }
-        break;
-      case "bl":
-        if (!bl) {
-          setBL(true);
-          setTimeout(function() {
-            setBL(false);
-          }, 6000);
-        }
-        break;
-      case "bc":
-        if (!bc) {
-          setBC(true);
-          setTimeout(function() {
-            setBC(false);
-          }, 6000);
-        }
-        break;
-      case "br":
-        if (!br) {
-          setBR(true);
-          setTimeout(function() {
-            setBR(false);
-          }, 6000);
-        }
-        break;
-      default:
-        break;
-    }
-  };
+  
   return (
     <div>
       <GridContainer>

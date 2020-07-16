@@ -11,10 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-
-
 import routes from "routes.js";
-
 import styles from "assets/jss/material-dashboard-pro-react/layouts/adminStyle.js";
 
 var ps;
@@ -29,8 +26,6 @@ export default function Dashboard(props) {
   const [image, setImage] = React.useState(require("assets/img/sidebar-2.jpg"));
   const [color, setColor] = React.useState("blue");
   const [bgColor, setBgColor] = React.useState("black");
-  // const [hasImage, setHasImage] = React.useState(true);
-  const [fixedClasses, setFixedClasses] = React.useState("dropdown");
   const [logo, setLogo] = React.useState(require("assets/img/logo-white.svg"));
   // styles
   const classes = useStyles();
@@ -63,31 +58,7 @@ export default function Dashboard(props) {
       window.removeEventListener("resize", resizeFunction);
     };
   });
-  // functions for changeing the states from components
-  const handleImageClick = image => {
-    setImage(image);
-  };
-  const handleColorClick = color => {
-    setColor(color);
-  };
-  const handleBgColorClick = bgColor => {
-    switch (bgColor) {
-      case "white":
-        setLogo(require("assets/img/logo.svg"));
-        break;
-      default:
-        setLogo(require("assets/img/logo-white.svg"));
-        break;
-    }
-    setBgColor(bgColor);
-  };
-  const handleFixedClick = () => {
-    if (fixedClasses === "dropdown") {
-      setFixedClasses("dropdown show");
-    } else {
-      setFixedClasses("dropdown");
-    }
-  };
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };

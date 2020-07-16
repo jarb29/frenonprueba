@@ -82,8 +82,8 @@ export default function Perfil() {
             </div>
             <CardBody>
               <h5 className={classes.cardTestimonialDescription}>
-                I love the color mixtures,
-                cards... everything. Keep up the great work!
+                I love the color mixtures, cards... everything. Keep up the
+                great work!
               </h5>
             </CardBody>
             <CardFooter testimonial>

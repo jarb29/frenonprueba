@@ -18,10 +18,7 @@ import Icon from "@material-ui/core/Icon";
 
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
-
 import sidebarStyle from "assets/jss/material-dashboard-pro-react/components/sidebarStyle.js";
-
-import avatar from "assets/img/faces/avatar.jpg";
 
 var ps;
 
@@ -60,7 +57,6 @@ class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openAvatar: false,
       miniActive: true,
       ...this.getCollapseStates(props.routes)
     };

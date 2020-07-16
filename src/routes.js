@@ -6,7 +6,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import DateRange from "@material-ui/icons/DateRange";
 import Timeline from "@material-ui/icons/Timeline";
 import WidgetsIcon from "@material-ui/icons/Widgets";
-import Perfil from "views/Widgets/Perfil";
+import Perfil from "views/Profile/Perfil";
 
 var dashRoutes = [
   {

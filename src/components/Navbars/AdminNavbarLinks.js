@@ -52,9 +52,6 @@ export default function HeaderLinks(props) {
       setOpenProfile(event.currentTarget);
     }
   };
-  const handleCloseProfile = () => {
-    setOpenProfile(null);
-  };
   const classes = useStyles();
   const { rtlActive } = props;
   const searchButton =

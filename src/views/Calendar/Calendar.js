@@ -11,7 +11,6 @@ import SweetAlert from "react-bootstrap-sweetalert";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import Heading from "components/Heading/Heading.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";

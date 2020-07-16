@@ -1,72 +1,6 @@
-# [Material Dashboard PRO React](https://demos.creative-tim.com/material-dashboard-pro-react/#/dashboard) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fcreativetimofficial.github.io%2Fmaterial-dashboard-pro-react%2F%23%2Fdashboard&text=Material%20Dashboard%20PRO%20React%20-%20Premium%20Material-UI%20Admin%20Template&original_referer=https%3A%2F%2Fdemos.creative-tim.com%2Fmaterial-dashboard-pro-react%2F%3F_ga%3D2.234372891.44370326.1533641128-1803433978.1528781151&via=creativetim&hashtags=react%2Cmaterial-ui)
-
-
-
-![version](https://img.shields.io/badge/version-1.8.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-material-dashboard-pro-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-material-dashboard-pro-react.svg?maxAge=2592000)](https://github.com/creativetimofficial/ct-material-dashboard-pro/issues-react?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim/material-dashboard) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
-
-![Product Gif](./src/assets/github/material-dashboard-pro-react.gif)
-
-
-
-Material Dashboard PRO React makes use of light, surface and movement. The general layout resembles sheets of paper following multiple different layers, so that the depth and order is obvious. The navigation stays mainly on the left sidebar and the content is on the right inside the main panel.
-
-Material Dashboard PRO React comes with 7 color filter choices for the links of the Sidebar (`blue`, `green`, `orange`, `red`, `purple`, `rose`, `white`), 3 filter color choices for background of the Sidebar (`white`, `blue`, `black`), an option to have a background image on the Sidebar and 6 color filter choices the card headers (`blue`, `green`, `orange`, `red`, `purple`, `rose`).
-
-
-
-#### Special thanks
-During the development of this dashboard, we have used many existing resources from awesome 
-
-Let us know your thoughts below. And good luck with development!
-
-## Table of Contents
-
-* [Versions](#versions)
-* [Demo](#demo)
-* [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
-* [Browser Support](#browser-support)
-* [Resources](#resources)
-* [Reporting Issues](#reporting-issues)
-* [Technical Support or Questions](#technical-support-or-questions)
-* [Licensing](#licensing)
-* [Useful Links](#useful-links)
-
-
-## Versions
-
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro-react)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/vuejs.png" width="60" height="60" />](https://www.creative-tim.com/product/vue-material-dashboard-pro)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro-angular2)
-
-
-| HTML | React | Vue | Angular |
-| --- | --- | --- | --- |
-| [![Material Dashboard Pro HTML](https://s3.amazonaws.com/creativetim_bucket/products/51/thumb/opt_mdp_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-pro) | [![Material Dashboard Pro React](https://s3.amazonaws.com/creativetim_bucket/products/80/thumb/opt_mdp_react_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-pro-react)  | [![Vue Material Dashboard Pro](https://s3.amazonaws.com/creativetim_bucket/products/87/thumb/opt_mdp_vue_thumbnail.jpg)](https://www.creative-tim.com/product/vue-material-dashboard-pro)  | [![Material Dashboard Pro Angular](https://s3.amazonaws.com/creativetim_bucket/products/55/thumb/opt_mdp_angular_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-pro-angular2)
-
-## Demo
-
-- [Start page](https://demos.creative-tim.com/material-dashboard-pro-react/#/dashboard)
-- [User profile page](https://demos.creative-tim.com/material-dashboard-pro-react/#/user-page)
-- [Tables page ](https://demos.creative-tim.com/material-dashboard-pro-react/#/tables/extended-tables)
-- [Maps Page](https://demos.creative-tim.com/material-dashboard-pro-react/#/maps/google-maps)
-- [Notifications page](https://demos.creative-tim.com/material-dashboard-pro-react/#/components/notifications)
-
-[View More](https://demos.creative-tim.com/material-dashboard-pro-react/#/dashboard).
-
-
 ## Quick start
 
 Quick start options:
-
-- Buy from [Creative Tim](https://www.creative-tim.com/product/material-dashboard-pro-react)
-
-
-## Documentation
-The documentation for the Material Dashboard Pro is hosted at our [website](https://demos.creative-tim.com/material-dashboard-pro-react/#/documentation/tutorial).
-
 
 ## File Structure
 
@@ -75,8 +9,6 @@ Within the download you'll find the following directories and files:
 ```
 material-dashboard-pro-react
 .
-├── CHANGELOG.md
-├── ISSUE_TEMPLATE.md
 ├── README.md
 ├── gulpfile.js
 ├── jsconfig.json
@@ -94,8 +26,6 @@ material-dashboard-pro-react
 │   └── manifest.json
 └── src
     ├── assets
-    │   ├── github
-    │   │   └── material-dashboard-pro-react.gif
     │   ├── img
     │   │   ├── faces
     │   │   ├── flags
@@ -113,10 +43,6 @@ material-dashboard-pro-react
     │       │   └── plugins
     │       └── material-dashboard-pro-react.scss
     ├── components
-    │   ├── Accordion
-    │   │   └── Accordion.js
-    │   ├── Badge
-    │   │   └── Badge.js
     │   ├── Card
     │   │   ├── Card.js
     │   │   ├── CardAvatar.js
@@ -125,123 +51,50 @@ material-dashboard-pro-react
     │   │   ├── CardHeader.js
     │   │   ├── CardIcon.js
     │   │   └── CardText.js
-    │   ├── Clearfix
-    │   │   └── Clearfix.js
     │   ├── CustomButtons
     │   │   └── Button.js
     │   ├── CustomDropdown
     │   │   └── CustomDropdown.js
-    │   ├── CustomInput
-    │   │   └── CustomInput.js
-    │   ├── CustomLinearProgress
-    │   │   └── CustomLinearProgress.js
-    │   ├── CustomTabs
-    │   │   └── CustomTabs.js
-    │   ├── CustomUpload
-    │   │   ├── ImageUpload.js
-    │   │   └── PictureUpload.js
-    │   ├── FixedPlugin
-    │   │   └── FixedPlugin.js
-    │   ├── Footer
-    │   │   └── Footer.js
     │   ├── Grid
     │   │   ├── GridContainer.js
     │   │   └── GridItem.js
-    │   ├── Heading
-    │   │   └── Heading.js
-    │   ├── InfoArea
-    │   │   └── InfoArea.js
     │   ├── Instruction
     │   │   └── Instruction.js
-    │   ├── NavPills
-    │   │   └── NavPills.js
+    │   ├── Modal
+    │   │   └── Modal.js
     │   ├── Navbars
     │   │   ├── AdminNavbar.js
     │   │   ├── AdminNavbarLinks.js
-    │   │   └── AuthNavbar.js
-    │   ├── Pagination
-    │   │   └── Pagination.js
     │   ├── Sidebar
     │   │   └── Sidebar.js
     │   ├── Snackbar
     │   │   ├── Snackbar.js
     │   │   └── SnackbarContent.js
-    │   ├── Table
-    │   │   └── Table.js
-    │   ├── Tasks
-    │   │   └── Tasks.js
-    │   ├── Timeline
-    │   │   └── Timeline.js
-    │   ├── Typography
-    │   │   ├── Danger.js
-    │   │   ├── Info.js
-    │   │   ├── Muted.js
-    │   │   ├── Primary.js
-    │   │   ├── Quote.js
-    │   │   ├── Success.js
-    │   │   └── Warning.js
-    │   └── Wizard
-    │       └── Wizard.js
-    ├── index.js
     ├── layouts
     │   ├── Admin.js
-    │   ├── Auth.js
-    │   └── RTL.js
     ├── routes.js
     ├── variables
     │   ├── charts.js
     │   └── general.js
     └── views
-        ├── Calendar
-        │   └── Calendar.js
-        ├── Charts
-        │   └── Charts.js
-        ├── Components
-        │   ├── Buttons.js
-        │   ├── GridSystem.js
-        │   ├── Icons.js
-        │   ├── Notifications.js
-        │   ├── Panels.js
-        │   ├── SweetAlert.js
-        │   └── Typography.js
-        ├── Dashboard
-        │   └── Dashboard.js
-        ├── Forms
-        │   ├── ExtendedForms.js
-        │   ├── RegularForms.js
-        │   ├── ValidationForms.js
-        │   ├── Wizard.js
-        │   └── WizardSteps
-        │       ├── Step1.js
-        │       ├── Step2.js
-        │       └── Step3.js
-        ├── Maps
-        │   ├── FullScreenMap.js
-        │   ├── GoogleMaps.js
-        │   └── VectorMap.js
-        ├── Pages
-        │   ├── ErrorPage.js
-        │   ├── LockScreenPage.js
-        │   ├── LoginPage.js
-        │   ├── PricingPage.js
-        │   ├── RTLSupport.js
-        │   ├── RegisterPage.js
-        │   ├── Timeline.js
-        │   └── UserProfile.js
-        ├── Tables
-        │   ├── ExtendedTables.js
-        │   ├── ReactTables.js
-        │   └── RegularTables.js
-        └── Widgets
-            └── Widgets.js
+    |   ├── Calendar
+    |   │   └── Calendar.js
+    |   ├── Charts
+    |   │   └── Charts.js
+    |   ├── Dashboard
+    |   │   └── Dashboard.js
+    |   ├── Notifications
+    |   │   ├── Notifications.js
+    |   ├── Profile
+    |   │   ├── Perfil.js
+    ├── App.js
+    ├── AppContext.js
+    ├── Flux.js
+    ├── Index.js
+    ├── routes.js
 ```
 
 ## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
-
 
 ## Resources
 - [Live Preview](https://demos.creative-tim.com/material-dashboard-pro-react/#/dashboard)

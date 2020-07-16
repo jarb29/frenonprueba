@@ -1,6 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
-    // base datos Angel
+    // base
     store: {
       /////URL
       baseURL: "https://app.fakejson.com/q",
@@ -61,7 +61,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         }
       },
-
       mensajes: () => {
         const store = getStore();
         const { token } = store;
@@ -107,7 +106,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         } else {
           setStore({
             hoteles: store.hotelesII.filter(
-              hotel => hotel.companyName.toLowerCase().slice(0, e.target.value.length) === e.target.value.toLowerCase()
+              hotel =>
+                hotel.companyName
+                  .toLowerCase()
+                  .slice(0, e.target.value.length) ===
+                e.target.value.toLowerCase()
             )
           });
         }
