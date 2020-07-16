@@ -4,27 +4,26 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       /////URL
       baseURL: "https://app.fakejson.com/q",
+
+      // El token solo permite 10000 hit per dar, cada uso de la pagina web suma 70 hit. 
       token: "L9bg6PhqeyyhuLBUB6WZHg",
+      
 
       // Variables del retorno
       mensajes: [],
       hoteles: [],
-      hotelesII: []
+      hotelesII: [],
+
+
+      // Errores del retorno
+      errorhoteles: [],
+      errorMensaje: []
+
     },
 
     actions: {
-      // autenticacion
 
-      // inputs
-      valoresEntrada: e => {
-        e.preventDefault();
-        setStore({
-          [e.target.name]: e.target.value
-        });
-      },
-
-      // Compra de Productos
-
+  // funcion que obtienes los Hoteles
       hoteles: () => {
         const store = getStore();
         const { token } = store;
@@ -52,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const dato = await resp.json();
         if (dato.msg) {
           setStore({
-            error: dato
+            errorhoteles: dato
           });
         } else {
           setStore({
@@ -61,6 +60,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
         }
       },
+
+// funcion que obtiene los mensajes
       mensajes: () => {
         const store = getStore();
         const { token } = store;
@@ -90,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const dato = await resp.json();
         if (dato.msg) {
           setStore({
-            error: dato
+            errorMensaje: dato
           });
         } else {
           setStore({
@@ -99,6 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+// Funcion para filtrar los hoteles
       filtro: e => {
         const store = getStore();
         if (e.target.value.length === 0) {
